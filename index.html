@@ -1,155 +1,219 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ถึงอ้วนของเค้า ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ถึงอ้วนของเค้า ❤️</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:sans-serif;
-    }
+<style>
 
-    body{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:linear-gradient(135deg,#ff9eb5,#ffb6c1,#ffc0cb);
-      overflow:hidden;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap');
 
-    .container{
-      text-align:center;
-      color:white;
-      padding:30px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Kanit',sans-serif;
+}
 
-    h1{
-      font-size:50px;
-      margin-bottom:15px;
-      text-shadow:0 0 10px rgba(0,0,0,0.2);
-    }
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffd1dc,#ffb6c1,#ffcce6);
+  position:relative;
+}
 
-    p{
-      font-size:20px;
-      margin-bottom:25px;
-    }
+/* พื้นหลังเบลอ */
+.bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backdrop-filter:blur(5px);
+}
 
-    .letter{
-      width:180px;
-      height:120px;
-      background:white;
-      margin:auto;
-      position:relative;
-      border-radius:10px;
-      cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    }
+/* หัวใจลอย */
+.heart{
+  position:absolute;
+  color:white;
+  font-size:20px;
+  animation:float 6s linear infinite;
+  opacity:0.8;
+}
 
-    .letter:hover{
-      transform:scale(1.05);
-    }
+@keyframes float{
+  0%{
+    transform:translateY(100vh) scale(0);
+    opacity:0;
+  }
 
-    .letter:before{
-      content:'💌';
-      font-size:70px;
-      position:absolute;
-      top:15px;
-      left:50%;
-      transform:translateX(-50%);
-    }
+  50%{
+    opacity:1;
+  }
 
-    .popup{
-      position:fixed;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      width:90%;
-      max-width:700px;
-      background:white;
-      color:#ff4f81;
-      padding:35px;
-      border-radius:25px;
-      display:none;
-      box-shadow:0 0 40px rgba(0,0,0,0.3);
-      z-index:999;
-      animation:fade 0.5s;
-      max-height:80vh;
-      overflow:auto;
-    }
+  100%{
+    transform:translateY(-120vh) scale(1.8);
+    opacity:0;
+  }
+}
 
-    .popup h2{
-      margin-bottom:20px;
-      font-size:38px;
-      text-align:center;
-    }
+.container{
+  position:relative;
+  z-index:10;
+  text-align:center;
+  padding:20px;
+}
 
-    .popup p{
-      color:#444;
-      line-height:2;
-      font-size:18px;
-      white-space:pre-line;
-    }
+.title{
+  color:white;
+  font-size:55px;
+  font-weight:700;
+  text-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
 
-    .close{
-      margin-top:25px;
-      background:#ff4f81;
-      color:white;
-      border:none;
-      padding:12px 24px;
-      border-radius:50px;
-      cursor:pointer;
-      font-size:16px;
-    }
+.subtitle{
+  color:white;
+  margin-top:10px;
+  font-size:20px;
+}
 
-    .heart{
-      position:absolute;
-      color:white;
-      font-size:25px;
-      animation:float 6s linear infinite;
-      opacity:0.7;
-    }
+/* กล่องจดหมาย */
+.envelope{
+  margin:40px auto;
+  width:220px;
+  height:160px;
+  background:white;
+  border-radius:20px;
+  position:relative;
+  cursor:pointer;
+  transition:0.4s;
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
 
-    @keyframes float{
-      0%{
-        transform:translateY(100vh) scale(0);
-      }
-      100%{
-        transform:translateY(-120vh) scale(1.5);
-      }
-    }
+.envelope:hover{
+  transform:translateY(-10px) scale(1.05);
+}
 
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translate(-50%,-40%);
-      }
-      to{
-        opacity:1;
-        transform:translate(-50%,-50%);
-      }
-    }
+.envelope::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  border-left:110px solid transparent;
+  border-right:110px solid transparent;
+  border-top:85px solid #ff8fb1;
+  border-radius:20px;
+}
 
-  </style>
+.envelope::after{
+  content:'💌';
+  position:absolute;
+  font-size:65px;
+  top:45px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.click-text{
+  color:white;
+  font-size:20px;
+  margin-top:10px;
+}
+
+/* popup */
+.popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0.7);
+  width:90%;
+  max-width:750px;
+  background:rgba(255,255,255,0.95);
+  border-radius:30px;
+  padding:40px;
+  z-index:999;
+  opacity:0;
+  pointer-events:none;
+  transition:0.4s;
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+  max-height:85vh;
+  overflow:auto;
+}
+
+.popup.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+.popup h2{
+  text-align:center;
+  color:#ff4f81;
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.popup p{
+  color:#555;
+  line-height:2.1;
+  font-size:18px;
+  white-space:pre-line;
+}
+
+.close-btn{
+  margin-top:25px;
+  background:#ff4f81;
+  color:white;
+  border:none;
+  padding:13px 28px;
+  border-radius:50px;
+  font-size:17px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.close-btn:hover{
+  transform:scale(1.05);
+}
+
+.music{
+  margin-top:15px;
+  color:white;
+  font-size:15px;
+}
+
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>ถึงอ้วนของเค้า ❤️</h1>
-    <p>กดจดหมายนี้สิ 💌</p>
+<div class="bg"></div>
 
-    <div class="letter" onclick="openLetter()"></div>
+<div class="container">
+
+  <div class="title">ถึงอ้วนของเค้า ❤️</div>
+
+  <div class="subtitle">
+    มีอะไรอยากบอกอ้วนด้วยนะ 💕
   </div>
 
-  <div class="popup" id="popup">
-    <h2>ถึงอ้วน 💕</h2>
+  <div class="envelope" onclick="openLetter()"></div>
 
-    <p>
+  <div class="click-text">
+    กดเปิดจดหมายเลย 💌
+  </div>
+
+</div>
+
+<div class="popup" id="popup">
+
+  <h2>ถึงอ้วน 💖</h2>
+
+  <p>
 เค้าอาจจะไม่ได้เป็นคนที่ดีที่สุด  
 อาจจะงี่เง่าบ้าง ดื้อบ้าง งอนเก่งบ้าง  
 แต่ทุกอย่างที่เค้ารู้สึกกับอ้วน มันจริงทั้งหมดเลยนะ ❤️
@@ -174,44 +238,54 @@
 มากจนบางทีคำว่า “รัก” ยังอธิบายไม่หมดเลย
 
 อยู่ด้วยกันไปนานๆ นะคนเก่งของเค้า ❤️
-    </p>
+  </p>
 
-    <center>
-      <button class="close" onclick="closeLetter()">ปิด 💖</button>
-    </center>
-  </div>
+  <center>
+    <button class="close-btn" onclick="closeLetter()">
+      ปิดจดหมาย 💌
+    </button>
+  </center>
 
-  <script>
+</div>
 
-    function openLetter(){
-      document.getElementById('popup').style.display='block';
-    }
+<script>
 
-    function closeLetter(){
-      document.getElementById('popup').style.display='none';
-    }
+/* เปิด popup */
+function openLetter(){
+  document.getElementById("popup").classList.add("show");
+}
 
-    // หัวใจลอย
-    function createHeart(){
-      const heart=document.createElement('div');
-      heart.classList.add('heart');
+/* ปิด popup */
+function closeLetter(){
+  document.getElementById("popup").classList.remove("show");
+}
 
-      heart.innerHTML='❤';
+/* หัวใจลอย */
+function createHeart(){
 
-      heart.style.left=Math.random()*100+'vw';
-      heart.style.animationDuration=(Math.random()*3+3)+'s';
-      heart.style.fontSize=(Math.random()*20+15)+'px';
+  const heart=document.createElement("div");
 
-      document.body.appendChild(heart);
+  heart.classList.add("heart");
 
-      setTimeout(()=>{
-        heart.remove();
-      },6000);
-    }
+  heart.innerHTML="❤";
 
-    setInterval(createHeart,300);
+  heart.style.left=Math.random()*100+"vw";
 
-  </script>
+  heart.style.fontSize=(Math.random()*25+15)+"px";
+
+  heart.style.animationDuration=(Math.random()*3+4)+"s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },7000);
+
+}
+
+setInterval(createHeart,250);
+
+</script>
 
 </body>
 </html>
