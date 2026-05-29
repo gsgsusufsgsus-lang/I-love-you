@@ -1,283 +1,171 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ของขวัญให้แฟน 🎁</title>
 
-<title>ถึงอ้วนของเค้า ❤️</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Tahoma", sans-serif;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
+    body{
+      background: linear-gradient(to bottom, #ffdbe8, #fff5f8);
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+    }
 
-<style>
+    .card{
+      text-align:center;
+      padding:20px;
+      animation: fade 1s ease;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Kanit',sans-serif;
-}
+    h1{
+      font-size:55px;
+      color:#ff5fa2;
+      margin-bottom:20px;
+      text-shadow:2px 2px white;
+    }
 
-body{
-  height:100vh;
-  overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,#ffd6e7,#ffc2d1,#ffe5ec);
-  position:relative;
-}
+    .gift{
+      width:260px;
+      cursor:pointer;
+      transition:0.4s;
+      animation: float 2s ease-in-out infinite;
+    }
 
-/* หัวใจลอย */
-.heart{
-  position:absolute;
-  color:white;
-  animation:float linear infinite;
-  opacity:0.7;
-}
+    .gift:hover{
+      transform:scale(1.05);
+    }
 
-@keyframes float{
-  0%{
-    transform:translateY(100vh) scale(0);
-    opacity:0;
-  }
+    p{
+      margin-top:20px;
+      font-size:24px;
+      color:#555;
+    }
 
-  50%{
-    opacity:1;
-  }
+    button{
+      margin-top:20px;
+      padding:14px 35px;
+      border:none;
+      border-radius:50px;
+      background:#ff69a6;
+      color:white;
+      font-size:20px;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
 
-  100%{
-    transform:translateY(-120vh) scale(1.8);
-    opacity:0;
-  }
-}
+    button:hover{
+      background:#ff4f95;
+      transform:scale(1.05);
+    }
 
-.card{
-  position:relative;
-  z-index:5;
-  width:350px;
-  padding:35px;
-  border-radius:35px;
-  background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(15px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  text-align:center;
-  animation:fade 1s ease;
-}
+    .message{
+      display:none;
+      margin-top:30px;
+      background:white;
+      padding:25px;
+      border-radius:25px;
+      max-width:500px;
+      font-size:24px;
+      line-height:1.8;
+      color:#ff4f95;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+      animation: fade 1s ease;
+    }
 
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
+    .heart{
+      position:absolute;
+      color:#ff7eb6;
+      font-size:25px;
+      animation: fall linear forwards;
+    }
 
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+      100%{transform:translateY(0);}
+    }
 
-/* รูป */
-.profile{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid white;
-  margin-bottom:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-  filter: brightness(1.05) contrast(1.05);
-}
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
 
-h1{
-  color:white;
-  font-size:38px;
-  margin-bottom:10px;
-}
-
-.text{
-  color:white;
-  font-size:18px;
-  margin-bottom:25px;
-}
-
-/* ปุ่ม */
-.btn{
-  background:white;
-  color:#ff4f81;
-  border:none;
-  padding:14px 30px;
-  border-radius:50px;
-  font-size:18px;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-}
-
-.btn:hover{
-  transform:scale(1.08);
-}
-
-/* popup */
-.popup{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) scale(0.7);
-  width:90%;
-  max-width:750px;
-  background:white;
-  border-radius:35px;
-  padding:35px;
-  opacity:0;
-  pointer-events:none;
-  transition:0.4s;
-  z-index:999;
-  max-height:85vh;
-  overflow:auto;
-  box-shadow:0 20px 50px rgba(0,0,0,0.3);
-}
-
-.popup.show{
-  opacity:1;
-  pointer-events:auto;
-  transform:translate(-50%,-50%) scale(1);
-}
-
-.popup h2{
-  color:#ff4f81;
-  text-align:center;
-  margin-bottom:20px;
-  font-size:40px;
-}
-
-.popup p{
-  color:#555;
-  line-height:2.2;
-  white-space:pre-line;
-  font-size:18px;
-}
-
-.close{
-  margin-top:25px;
-  border:none;
-  background:#ff4f81;
-  color:white;
-  padding:12px 28px;
-  border-radius:50px;
-  font-size:17px;
-  cursor:pointer;
-}
-
-audio{
-  width:100%;
-  margin-top:20px;
-}
-
-</style>
+    @keyframes fall{
+      to{
+        transform:translateY(100vh);
+        opacity:0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- กล่องหลัก -->
-<div class="card">
+  <div class="card">
 
-  <!-- รูป -->
-  <img src="love.jpg" class="profile">
+    <h1>กำลังมีของขวัญ<br>ส่งถึงเธอ 🎀</h1>
 
-  <h1>ถึงอ้วน 💖</h1>
+    <img
+      class="gift"
+      src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png"
+      alt="gift"
+    >
 
-  <div class="text">
-    เค้ามีอะไรอยากบอกอ้วนด้วยนะ 🥺
+    <p>ของขวัญมาส่งแล้ว !</p>
+
+    <button onclick="showMessage()">เปิดกล่อง</button>
+
+    <div class="message" id="message">
+      เค้าอาจจะไม่ได้ดีที่สุด 💗<br>
+      แต่ว่าทุกอย่างที่เค้ามีให้เธอ<br>
+      มันจริงทั้งหมดเลยนะ ✨<br><br>
+
+      ขอบคุณที่อยู่ด้วยกันมาตลอด 🌷<br>
+      ขอให้เรามีกันแบบนี้ไปนาน ๆ นะ 💞
+    </div>
+
   </div>
 
-  <button class="btn" onclick="openLetter()">
-    เปิดจดหมาย 💌
-  </button>
+  <script>
+    function showMessage(){
+      document.getElementById("message").style.display = "block";
 
-</div>
+      for(let i=0;i<30;i++){
+        let heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.classList.add("heart");
 
-<!-- popup -->
-<div class="popup" id="popup">
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.top = "-20px";
+        heart.style.animationDuration = (Math.random()*3+2)+"s";
+        heart.style.fontSize = (Math.random()*20+20)+"px";
 
-<h2>ถึงอ้วนของเค้า ❤️</h2>
+        document.body.appendChild(heart);
 
-<p>
-เค้าอาจจะไม่ได้เป็นคนที่ดีที่สุด  
-อาจจะงี่เง่าบ้าง ดื้อบ้าง งอนเก่งบ้าง  
-แต่ทุกอย่างที่เค้ารู้สึกกับอ้วน มันจริงทั้งหมดเลยนะ ❤️
-
-ตั้งแต่วันที่อ้วนเข้ามา ชีวิตเค้ามันมีความสุขขึ้นเยอะมาก  
-แค่ได้คุย ได้เห็นหน้า ได้อยู่ด้วยกัน  
-วันธรรมดาๆ ของเค้ากลายเป็นวันที่พิเศษทุกวันเลย
-
-ขอบคุณนะที่อยู่ข้างกันมาตลอด  
-ขอบคุณที่คอยเข้าใจในวันที่เค้าอ่อนแอ  
-ขอบคุณที่ทำให้รู้ว่าการมีใครสักคนรักจริงๆ มันเป็นยังไง
-
-ต่อให้วันข้างหน้าจะมีอะไรเกิดขึ้น  
-เค้าก็ยังอยากจับมืออ้วนไว้แบบนี้ไปเรื่อยๆ  
-อยากอยู่ในทุกช่วงเวลาของอ้วน  
-ทั้งวันที่มีความสุข วันที่เหนื่อย หรือวันที่ร้องไห้
-
-แล้วก็อยากให้อ้วนรู้ไว้ว่า  
-อ้วนคือคนสำคัญที่สุดของเค้านะ 💕
-
-เค้ารักอ้วนมากจริงๆ  
-มากจนบางทีคำว่า “รัก” ยังอธิบายไม่หมดเลย
-
-อยู่ด้วยกันไปนานๆ นะคะคนเก่งของเค้า ❤️
-</p>
-
-<!-- เพลง -->
-<audio controls autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<center>
-<button class="close" onclick="closeLetter()">
-ปิด 💖
-</button>
-</center>
-
-</div>
-
-<script>
-
-/* เปิด popup */
-function openLetter(){
-  document.getElementById("popup").classList.add("show");
-}
-
-/* ปิด popup */
-function closeLetter(){
-  document.getElementById("popup").classList.remove("show");
-}
-
-/* หัวใจลอย */
-function createHeart(){
-
-  const heart=document.createElement("div");
-
-  heart.classList.add("heart");
-
-  heart.innerHTML="❤";
-
-  heart.style.left=Math.random()*100+"vw";
-
-  heart.style.fontSize=(Math.random()*25+15)+"px";
-
-  heart.style.animationDuration=(Math.random()*3+4)+"s";
-
-  document.body.appendChild(heart);
-
-  setTimeout(()=>{
-    heart.remove();
-  },7000);
-}
-
-setInterval(createHeart,250);
-
-</script>
+        setTimeout(()=>{
+          heart.remove();
+        },5000);
+      }
+    }
+  </script>
 
 </body>
 </html>
