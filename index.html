@@ -1,171 +1,486 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ของขวัญให้แฟน 🎁</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Love Gift 🎁</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: "Tahoma", sans-serif;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 
-    body{
-      background: linear-gradient(to bottom, #ffdbe8, #fff5f8);
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-    }
+<style>
 
-    .card{
-      text-align:center;
-      padding:20px;
-      animation: fade 1s ease;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Itim',cursive;
+}
 
-    h1{
-      font-size:55px;
-      color:#ff5fa2;
-      margin-bottom:20px;
-      text-shadow:2px 2px white;
-    }
+body{
+  overflow:hidden;
+  height:100vh;
+  background:
+  linear-gradient(180deg,#ffd7e8,#fff5fb);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
 
-    .gift{
-      width:260px;
-      cursor:pointer;
-      transition:0.4s;
-      animation: float 2s ease-in-out infinite;
-    }
+/* พื้นหลังวิ้งๆ */
 
-    .gift:hover{
-      transform:scale(1.05);
-    }
+.bg-heart{
+  position:absolute;
+  color:#ffffff88;
+  animation:floatHeart linear infinite;
+  z-index:0;
+}
 
-    p{
-      margin-top:20px;
-      font-size:24px;
-      color:#555;
-    }
+@keyframes floatHeart{
+  from{
+    transform:translateY(110vh) rotate(0deg);
+    opacity:0;
+  }
 
-    button{
-      margin-top:20px;
-      padding:14px 35px;
-      border:none;
-      border-radius:50px;
-      background:#ff69a6;
-      color:white;
-      font-size:20px;
-      cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    }
+  20%{
+    opacity:1;
+  }
 
-    button:hover{
-      background:#ff4f95;
-      transform:scale(1.05);
-    }
+  to{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+}
 
-    .message{
-      display:none;
-      margin-top:30px;
-      background:white;
-      padding:25px;
-      border-radius:25px;
-      max-width:500px;
-      font-size:24px;
-      line-height:1.8;
-      color:#ff4f95;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
-      animation: fade 1s ease;
-    }
+/* กล่องหลัก */
 
-    .heart{
-      position:absolute;
-      color:#ff7eb6;
-      font-size:25px;
-      animation: fall linear forwards;
-    }
+.container{
+  width:90%;
+  max-width:520px;
+  text-align:center;
+  z-index:10;
+  animation:fade 1s ease;
+}
 
-    @keyframes float{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-10px);}
-      100%{transform:translateY(0);}
-    }
+.title{
+  font-size:58px;
+  line-height:1.3;
+  color:#ff4f95;
+  text-shadow:3px 3px white;
+}
 
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+.sub{
+  margin-top:10px;
+  color:#777;
+  font-size:23px;
+}
 
-    @keyframes fall{
-      to{
-        transform:translateY(100vh);
-        opacity:0;
-      }
-    }
-  </style>
+/* ของขวัญ */
+
+.gift{
+  width:290px;
+  margin-top:20px;
+  cursor:pointer;
+  animation:
+  floating 2s ease-in-out infinite,
+  glow 2s infinite;
+  transition:.4s;
+  filter:drop-shadow(0 15px 25px rgba(0,0,0,.15));
+}
+
+.gift:hover{
+  transform:scale(1.05);
+}
+
+@keyframes floating{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes glow{
+  0%{
+    filter:drop-shadow(0 0 5px #ff8dc1);
+  }
+
+  50%{
+    filter:drop-shadow(0 0 20px #ff5fa2);
+  }
+
+  100%{
+    filter:drop-shadow(0 0 5px #ff8dc1);
+  }
+}
+
+/* ปุ่ม */
+
+.btn{
+  margin-top:25px;
+  border:none;
+  padding:15px 45px;
+  border-radius:999px;
+  background:linear-gradient(45deg,#ff5fa2,#ff80b8);
+  color:white;
+  font-size:23px;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 10px 25px rgba(255,95,162,.35);
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+/* กล่องข้อความ */
+
+.message-box{
+  display:none;
+  margin-top:30px;
+  background:white;
+  padding:30px;
+  border-radius:35px;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+  animation:popup .9s ease;
+}
+
+.message{
+  color:#ff4f95;
+  font-size:28px;
+  line-height:1.8;
+}
+
+/* ปุ่มเสริม */
+
+.action-group{
+  margin-top:25px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.action-btn{
+  border:none;
+  background:#fff0f6;
+  color:#ff4f95;
+  padding:12px 22px;
+  border-radius:50px;
+  cursor:pointer;
+  font-size:18px;
+  transition:.3s;
+}
+
+.action-btn:hover{
+  transform:scale(1.08);
+  background:#ffd6e8;
+}
+
+/* รูปหัวใจ */
+
+.photo{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-top:20px;
+  border:6px solid white;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  animation:spinSlow 10s linear infinite;
+}
+
+@keyframes spinSlow{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* ดาว */
+
+.spark{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  animation:sparkle 2s linear infinite;
+}
+
+@keyframes sparkle{
+  0%{
+    transform:scale(0);
+    opacity:0;
+  }
+  50%{
+    transform:scale(1);
+    opacity:1;
+  }
+  100%{
+    transform:scale(0);
+    opacity:0;
+  }
+}
+
+/* popup */
+
+@keyframes popup{
+  0%{
+    transform:scale(.4);
+    opacity:0;
+  }
+  100%{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* countdown */
+
+.count{
+  margin-top:15px;
+  font-size:22px;
+  color:#ff4f95;
+}
+
+/* ล่าง */
+
+.footer{
+  position:absolute;
+  bottom:15px;
+  font-size:16px;
+  color:#999;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="card">
+<!-- วิ้งพื้นหลัง -->
 
-    <h1>กำลังมีของขวัญ<br>ส่งถึงเธอ 🎀</h1>
+<script>
+for(let i=0;i<35;i++){
+
+  let bg=document.createElement("div");
+
+  bg.className="bg-heart";
+
+  bg.innerHTML=["💖","💕","💗","💞","🌸"][Math.floor(Math.random()*5)];
+
+  bg.style.left=Math.random()*100+"vw";
+
+  bg.style.fontSize=(Math.random()*30+15)+"px";
+
+  bg.style.animationDuration=(Math.random()*10+10)+"s";
+
+  bg.style.animationDelay=Math.random()*5+"s";
+
+  document.body.appendChild(bg);
+}
+</script>
+
+<div class="container">
+
+  <div class="title">
+    มีของขวัญ 🎀<br>
+    ส่งถึงแฟนเค้า
+  </div>
+
+  <div class="sub">
+    กดเปิดดูได้เลยน้าา 💗
+  </div>
+
+  <img
+  class="gift"
+  onclick="openGift()"
+  src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png"
+  >
+
+  <br>
+
+  <button class="btn" onclick="openGift()">
+    เปิดกล่อง 💝
+  </button>
+
+  <div class="message-box" id="box">
 
     <img
-      class="gift"
-      src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png"
-      alt="gift"
+    class="photo"
+    src="https://i.pinimg.com/736x/59/6c/f2/596cf2f6fa83f8ef56bb0c8f06d8e9b3.jpg"
     >
 
-    <p>ของขวัญมาส่งแล้ว !</p>
+    <div class="message">
+      เค้ารักเธอมากที่สุดเลยนะ 💖<br><br>
 
-    <button onclick="showMessage()">เปิดกล่อง</button>
+      ขอบคุณที่อยู่กับเค้า<br>
+      ในทุกวันเลย 🌷<br><br>
 
-    <div class="message" id="message">
-      เค้าอาจจะไม่ได้ดีที่สุด 💗<br>
-      แต่ว่าทุกอย่างที่เค้ามีให้เธอ<br>
-      มันจริงทั้งหมดเลยนะ ✨<br><br>
+      ขอให้เรามีกันแบบนี้<br>
+      ไปนาน ๆ เลยน้า ✨
+    </div>
 
-      ขอบคุณที่อยู่ด้วยกันมาตลอด 🌷<br>
-      ขอให้เรามีกันแบบนี้ไปนาน ๆ นะ 💞
+    <div class="count" id="countdown"></div>
+
+    <div class="action-group">
+
+      <button class="action-btn" onclick="playMusic()">
+        🎵 เปิดเพลง
+      </button>
+
+      <button class="action-btn" onclick="showLove()">
+        💌 ข้อความลับ
+      </button>
+
+      <button class="action-btn" onclick="rainHearts()">
+        💖 โปรยหัวใจ
+      </button>
+
     </div>
 
   </div>
 
-  <script>
-    function showMessage(){
-      document.getElementById("message").style.display = "block";
+</div>
 
-      for(let i=0;i<30;i++){
-        let heart = document.createElement("div");
-        heart.innerHTML = "💖";
-        heart.classList.add("heart");
+<div class="footer">
+  made with love 💞
+</div>
 
-        heart.style.left = Math.random()*100 + "vw";
-        heart.style.top = "-20px";
-        heart.style.animationDuration = (Math.random()*3+2)+"s";
-        heart.style.fontSize = (Math.random()*20+20)+"px";
+<!-- เพลง -->
 
-        document.body.appendChild(heart);
+<audio id="music">
+<source src="https://files.catbox.moe/6r8w5p.mp3">
+</audio>
 
-        setTimeout(()=>{
-          heart.remove();
-        },5000);
-      }
-    }
-  </script>
+<script>
+
+/* เปิดกล่อง */
+
+function openGift(){
+
+  document.getElementById("box").style.display="block";
+
+  rainHearts();
+
+  createSparkles();
+
+  playMusic();
+}
+
+/* เพลง */
+
+function playMusic(){
+
+  document.getElementById("music").play();
+}
+
+/* หัวใจร่วง */
+
+function rainHearts(){
+
+  for(let i=0;i<80;i++){
+
+    let heart=document.createElement("div");
+
+    heart.innerHTML=["💖","💗","💕","💞","🌸"][Math.floor(Math.random()*5)];
+
+    heart.style.position="absolute";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.top="-20px";
+
+    heart.style.fontSize=(Math.random()*25+20)+"px";
+
+    heart.style.animation=`fall ${(Math.random()*3)+2}s linear forwards`;
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+    },5000);
+  }
+}
+
+/* sparkle */
+
+function createSparkles(){
+
+  for(let i=0;i<60;i++){
+
+    let s=document.createElement("div");
+
+    s.className="spark";
+
+    s.style.left=Math.random()*100+"vw";
+
+    s.style.top=Math.random()*100+"vh";
+
+    document.body.appendChild(s);
+
+    setTimeout(()=>{
+      s.remove();
+    },2000);
+  }
+}
+
+/* popup */
+
+function showLove(){
+
+  alert("เค้าจะรักเธอทุกวันเลยนะคนเก่ง 💖");
+}
+
+/* countdown */
+
+const startDate = new Date("2025-01-01");
+
+function updateCountdown(){
+
+  const now = new Date();
+
+  const diff = now - startDate;
+
+  const days = Math.floor(diff / (1000*60*60*24));
+
+  document.getElementById("countdown").innerHTML =
+  "เราอยู่ด้วยกันมา 💞 " + days + " วัน";
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+/* css animation */
+
+const style=document.createElement('style');
+
+style.innerHTML=`
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+`;
+
+document.head.appendChild(style);
+
+</script>
 
 </body>
 </html>
