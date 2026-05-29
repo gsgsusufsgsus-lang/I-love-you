@@ -177,7 +177,7 @@ body{
 
 .card h3{
   margin-top:10px;
-  font-size:24px;
+  font-size:22px;
 }
 
 /* popup */
@@ -194,7 +194,7 @@ body{
 
 .popup-content{
   width:90%;
-  max-width:400px;
+  max-width:420px;
   background:white;
   border-radius:30px;
   padding:30px;
@@ -209,8 +209,8 @@ body{
 }
 
 .popup-content p{
-  font-size:24px;
-  line-height:1.7;
+  font-size:23px;
+  line-height:1.8;
   color:#666;
 }
 
@@ -279,14 +279,6 @@ body{
   font-size:28px;
 }
 
-/* รูป */
-
-.memory-img{
-  width:100%;
-  border-radius:20px;
-  margin-top:15px;
-}
-
 </style>
 </head>
 
@@ -334,7 +326,7 @@ body{
 </div>
 
 <div class="bottom-text">
-ใส่รหัสน้าา~
+0301 💞
 </div>
 
 </div>
@@ -349,24 +341,49 @@ body{
 
 <div class="grid">
 
-<div class="card" onclick="openPopup('💖 เราคบกันมาแล้ว','เราอยู่ด้วยกันมา '+days+' วันแล้วนะ 🌷')">
+<!-- วัน -->
+
+<div class="card" onclick="openPopup(
+'💖 เราคบกันมาแล้ว',
+
+'เราอยู่ด้วยกันมา '+days+' วันแล้วนะ 🌷<br><br>
+
+ขอบคุณที่อยู่ด้วยกันมาตลอดเลยนะ 💞'
+)">
 <div class="icon">🍒</div>
 <h3>เราคบกันมานานเท่าไหร่แล้วนะ</h3>
 </div>
 
-<div class="card" onclick="openPopup('💌 จดหมายถึงแฟน','ขอบคุณที่อยู่กับเค้ามาตลอดเลยนะ เค้ารักเธอมากที่สุดเลย 💖')">
+<!-- จดหมาย -->
+
+<div class="card" onclick="openPopup(
+'💌 จดหมายถึงแฟน',
+
+'บางครั้งความสุขของเค้า  
+ก็เป็นแค่การได้คุยกับเธอในทุกวันเองนะ 🌷<br><br>
+
+ไม่ต้องมีอะไรพิเศษมาก  
+แค่มีเธออยู่ตรงนี้  
+ทุกอย่างก็น่ารักไปหมดแล้ว ✨<br><br>
+
+เธอเหมือนเพลงโปรดที่ฟังแล้วไม่เบื่อ  
+เหมือนรอยยิ้มที่ทำให้เค้ายิ้มตามได้ทุกครั้ง 💖<br><br>
+
+ขอบคุณที่เข้ามาเป็นโลกใบเล็ก ๆ  
+ที่โคตรสบายใจสำหรับเค้าเลย 🤍<br><br>
+
+ต่อให้วันไหนเหนื่อยแค่ไหน  
+แค่มีเธออยู่ เค้าก็โอเคแล้วนะ 💞'
+)">
 <div class="icon">🐰</div>
 <h3>จดหมายถึงคนที่น่ารัก</h3>
 </div>
 
-<div class="card" onclick="openPopup('🎂 เรารู้จักกัน','ตั้งแต่วันที่เจอเธอ ชีวิตเค้ามีความสุขขึ้นเยอะมาก ✨')">
-<div class="icon">🧁</div>
-<h3>เรารู้ใจกันมากแค่ไหน</h3>
-</div>
+<!-- รู้ใจกัน -->
 
-<div class="card" onclick="openMemory()">
-<div class="icon">📷</div>
-<h3>ความทรงจำ</h3>
+<div class="card" onclick="showChoices()">
+<div class="icon">🎀</div>
+<h3>เรารู้ใจกันแค่ไหน</h3>
 </div>
 
 </div>
@@ -374,7 +391,7 @@ body{
 <div class="days" id="daysText"></div>
 
 <div class="bottom-text">
-เลือกเมนู
+เค้ารักเธอน้า 💖
 </div>
 
 </div>
@@ -389,13 +406,6 @@ body{
 
 <p id="popupText"></p>
 
-<img
-id="memoryImage"
-class="memory-img"
-style="display:none;"
-src="https://i.pinimg.com/736x/59/6c/f2/596cf2f6fa83f8ef56bb0c8f06d8e9b3.jpg"
->
-
 <button class="close" onclick="closePopup()">
 ปิด
 </button>
@@ -406,7 +416,7 @@ src="https://i.pinimg.com/736x/59/6c/f2/596cf2f6fa83f8ef56bb0c8f06d8e9b3.jpg"
 
 <script>
 
-/* input auto */
+/* auto next */
 
 const inputs=document.querySelectorAll("input");
 
@@ -462,22 +472,6 @@ document.getElementById("popupTitle").innerHTML=title;
 
 document.getElementById("popupText").innerHTML=text;
 
-document.getElementById("memoryImage").style.display="none";
-
-rainHearts();
-
-}
-
-function openMemory(){
-
-document.getElementById("popup").style.display="flex";
-
-document.getElementById("popupTitle").innerHTML="📸 ความทรงจำ";
-
-document.getElementById("popupText").innerHTML="ทุกช่วงเวลาที่มีเธอ มันน่ารักไปหมดเลย 💞";
-
-document.getElementById("memoryImage").style.display="block";
-
 rainHearts();
 
 }
@@ -500,7 +494,7 @@ document.getElementById("music").play();
 
 function rainHearts(){
 
-for(let i=0;i<50;i++){
+for(let i=0;i<40;i++){
 
 let heart=document.createElement("div");
 
@@ -526,7 +520,7 @@ heart.remove();
 
 /* นับวัน */
 
-const startDate = new Date("2025-03-01");
+const startDate = new Date("2026-01-03");
 
 const now = new Date();
 
@@ -536,6 +530,37 @@ const days = Math.floor(diff / (1000*60*60*24));
 
 document.getElementById("daysText").innerHTML =
 "เราอยู่ด้วยกันมา 💞 "+days+" วัน";
+
+/* รู้ใจกัน */
+
+function showChoices(){
+
+const texts = [
+
+"เค้าว่าเราเข้าใจกันเก่งมากเลยนะ 💖<br><br>แค่มองหน้าก็รู้แล้วว่าอีกคนกำลังคิดอะไรอยู่ 🌷",
+
+"ต่อให้เราจะงอนกันบ้าง แต่สุดท้ายก็ยังเลือกกันอยู่ดี 💞",
+
+"เธอเป็นคนที่เค้าสบายใจที่สุดเลยนะ ✨",
+
+"เวลาที่เค้าเหนื่อย แค่มีเธออยู่ตรงนี้ เค้าก็โอเคแล้ว 🤍",
+
+"บางทีเราอาจไม่ได้สมบูรณ์แบบ แต่เราเหมาะกันมากเลยนะ ☁️",
+
+"เค้าชอบเวลาที่เธอใส่ใจเรื่องเล็ก ๆ ของเค้า มันน่ารักมากเลย 💌",
+
+"ต่อให้วันนึงเราโตขึ้นแค่ไหน เค้าก็ยังอยากมีเธออยู่ข้าง ๆ นะ 🌸"
+
+];
+
+const randomText = texts[Math.floor(Math.random()*texts.length)];
+
+openPopup(
+'💖 เรารู้ใจกันแค่ไหน',
+randomText
+);
+
+}
 
 </script>
 
