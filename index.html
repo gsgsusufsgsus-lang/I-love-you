@@ -10,273 +10,336 @@
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Itim',cursive;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Itim',cursive;
 }
 
 body{
-  background:linear-gradient(to bottom,#ffe1ec,#fff7fb);
-  min-height:100vh;
-  overflow-x:hidden;
+background:linear-gradient(180deg,#ffdce9,#fff7fb);
+overflow-x:hidden;
+min-height:100vh;
 }
 
-/* โหลด */
+/* loading */
 
 .loading{
-  position:fixed;
-  inset:0;
-  background:#ffd7e8;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  z-index:999;
-  animation:hideLoading 1s ease forwards;
-  animation-delay:3s;
+position:fixed;
+inset:0;
+background:#ffdce9;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+animation:hideLoading 1s ease forwards;
+animation-delay:3s;
 }
 
 .loading h1{
-  color:#ff4f95;
-  font-size:50px;
+font-size:55px;
+color:#ff4f95;
 }
 
 .loading p{
-  color:#777;
-  margin-top:10px;
-  font-size:22px;
+margin-top:10px;
+font-size:22px;
+color:#777;
 }
 
 .loader{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  border:8px solid white;
-  border-top:8px solid #ff4f95;
-  animation:spin 1s linear infinite;
-  margin-top:20px;
+width:80px;
+height:80px;
+border-radius:50%;
+border:8px solid white;
+border-top:8px solid #ff4f95;
+margin-top:20px;
+animation:spin 1s linear infinite;
 }
 
 @keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+to{
+transform:rotate(360deg);
+}
 }
 
 @keyframes hideLoading{
-  to{
-    opacity:0;
-    visibility:hidden;
-  }
+to{
+opacity:0;
+visibility:hidden;
+}
 }
 
-/* หน้าใส่รหัส */
+/* background hearts */
+
+.bg-heart{
+position:fixed;
+top:-20px;
+animation:fall linear forwards;
+z-index:0;
+opacity:.8;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* music */
+
+.music-btn{
+position:fixed;
+top:15px;
+right:15px;
+width:65px;
+height:65px;
+background:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+z-index:999;
+cursor:pointer;
+transition:.3s;
+}
+
+.music-btn:hover{
+transform:scale(1.1);
+}
+
+/* password */
 
 .password-page{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  flex-direction:column;
-  padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+flex-direction:column;
+padding:20px;
+position:relative;
+z-index:2;
 }
 
 .pass-box{
-  background:#ff74ab;
-  padding:35px;
-  width:320px;
-  border-radius:30px;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+background:#ff74ab;
+padding:35px;
+width:330px;
+border-radius:35px;
+text-align:center;
+box-shadow:0 15px 30px rgba(0,0,0,.1);
+animation:popup .6s ease;
 }
 
 .pass-box h2{
-  color:white;
-  font-size:35px;
+font-size:38px;
+color:white;
 }
 
 .pass-box p{
-  color:white;
-  margin:10px 0 20px;
+color:white;
+margin:15px 0;
+font-size:20px;
 }
 
 .inputs{
-  display:flex;
-  justify-content:center;
-  gap:10px;
+display:flex;
+justify-content:center;
+gap:10px;
 }
 
 .inputs input{
-  width:55px;
-  height:55px;
-  border:none;
-  border-radius:15px;
-  text-align:center;
-  font-size:28px;
-  outline:none;
+width:60px;
+height:60px;
+border:none;
+border-radius:18px;
+font-size:28px;
+text-align:center;
+outline:none;
 }
 
 .enter-btn{
-  margin-top:20px;
-  background:white;
-  border:none;
-  color:#ff4f95;
-  padding:12px 35px;
-  border-radius:50px;
-  font-size:20px;
-  cursor:pointer;
+margin-top:20px;
+padding:13px 35px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f95;
+font-size:22px;
+cursor:pointer;
+transition:.3s;
 }
 
-.bottom-text{
-  text-align:center;
-  margin-top:50px;
-  font-size:50px;
-  color:#ff5b9d;
+.enter-btn:hover{
+transform:scale(1.05);
 }
 
-/* เมนู */
+.big-text{
+margin-top:50px;
+font-size:40px;
+color:#ff5b9d;
+text-align:center;
+}
+
+/* menu */
 
 .menu-page{
-  display:none;
-  padding:40px 20px;
-  text-align:center;
+display:none;
+padding:40px 20px 100px;
+text-align:center;
+position:relative;
+z-index:2;
 }
 
 .menu-title{
-  color:#555;
-  font-size:35px;
-  margin-bottom:25px;
+font-size:45px;
+color:#ff4f95;
+margin-bottom:30px;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  max-width:500px;
-  margin:auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+max-width:550px;
+margin:auto;
 }
 
 .card{
-  background:#ff6fa9;
-  border-radius:25px;
-  padding:30px 20px;
-  color:white;
-  cursor:pointer;
-  transition:.3s;
-  box-shadow:0 10px 20px rgba(0,0,0,.1);
+background:linear-gradient(135deg,#ff74ab,#ff9cc4);
+padding:28px 20px;
+border-radius:30px;
+color:white;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
 .card:hover{
-  transform:scale(1.05);
+transform:translateY(-5px) scale(1.03);
 }
 
-.card .icon{
-  font-size:45px;
+.icon{
+font-size:45px;
 }
 
 .card h3{
-  margin-top:10px;
-  font-size:22px;
+margin-top:10px;
+font-size:22px;
+line-height:1.4;
 }
 
 /* popup */
 
 .popup{
-  position:fixed;
-  inset:0;
-  background:#00000077;
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:99;
+position:fixed;
+inset:0;
+background:#00000077;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+padding:20px;
 }
 
 .popup-content{
-  width:90%;
-  max-width:420px;
-  background:white;
-  border-radius:30px;
-  padding:30px;
-  text-align:center;
-  animation:popup .4s ease;
-}
-
-.popup-content h2{
-  color:#ff4f95;
-  margin-bottom:15px;
-  font-size:35px;
-}
-
-.popup-content p{
-  font-size:23px;
-  line-height:1.8;
-  color:#666;
-}
-
-.close{
-  margin-top:20px;
-  border:none;
-  background:#ff4f95;
-  color:white;
-  padding:12px 30px;
-  border-radius:50px;
-  font-size:18px;
-  cursor:pointer;
+background:white;
+width:100%;
+max-width:430px;
+padding:35px;
+border-radius:35px;
+text-align:center;
+animation:popup .4s ease;
+position:relative;
 }
 
 @keyframes popup{
-  from{
-    transform:scale(.5);
-    opacity:0;
-  }
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
 }
 
-/* หัวใจ */
-
-.heart{
-  position:fixed;
-  top:-20px;
-  animation:fall linear forwards;
-  z-index:1;
+.popup-content h2{
+font-size:38px;
+color:#ff4f95;
+margin-bottom:15px;
 }
 
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0;
-  }
+.popup-content p{
+font-size:23px;
+line-height:1.8;
+color:#666;
 }
 
-/* เพลง */
-
-.music-btn{
-  position:fixed;
-  top:15px;
-  right:15px;
-  background:white;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:28px;
-  box-shadow:0 5px 20px rgba(0,0,0,.15);
-  cursor:pointer;
-  z-index:99;
+.close{
+margin-top:20px;
+padding:12px 35px;
+border:none;
+border-radius:50px;
+background:#ff4f95;
+color:white;
+font-size:18px;
+cursor:pointer;
 }
 
-/* นับวัน */
+/* image */
+
+.memory-img{
+width:100%;
+border-radius:25px;
+margin-top:20px;
+}
+
+/* footer */
+
+.footer{
+margin-top:50px;
+font-size:30px;
+color:#ff5b9d;
+}
+
+/* count */
 
 .days{
-  margin-top:30px;
-  color:#ff4f95;
-  font-size:28px;
+margin-top:25px;
+font-size:30px;
+color:#ff4f95;
+}
+
+/* sparkle */
+
+.spark{
+position:fixed;
+width:10px;
+height:10px;
+background:white;
+border-radius:50%;
+animation:spark 2s linear infinite;
+z-index:1;
+}
+
+@keyframes spark{
+0%{
+transform:scale(0);
+opacity:0;
+}
+50%{
+transform:scale(1);
+opacity:1;
+}
+100%{
+transform:scale(0);
+opacity:0;
+}
 }
 
 </style>
@@ -284,15 +347,11 @@ body{
 
 <body>
 
-<!-- โหลด -->
-
 <div class="loading">
-  <h1>กำลังโหลด 💖</h1>
-  <p>ของขวัญกำลังมาหาเธอ</p>
-  <div class="loader"></div>
+<h1>กำลังโหลด 💖</h1>
+<p>ของขวัญกำลังเดินทางมาหาเธอ</p>
+<div class="loader"></div>
 </div>
-
-<!-- เพลง -->
 
 <div class="music-btn" onclick="playMusic()">
 🎵
@@ -302,15 +361,13 @@ body{
 <source src="https://files.catbox.moe/6r8w5p.mp3">
 </audio>
 
-<!-- หน้าใส่รหัส -->
-
 <div class="password-page" id="passwordPage">
 
 <div class="pass-box">
 
 <h2>กรอกรหัส 💌</h2>
 
-<p>คำใบ้ : วันครบรอบของเรา</p>
+<p>คำใบ้ : วันสำคัญของเรา</p>
 
 <div class="inputs">
 <input maxlength="1">
@@ -325,78 +382,104 @@ body{
 
 </div>
 
-<div class="bottom-text">
-0301 💞
+<div class="big-text">
+มีแค่เธอที่รู้รหัสนี้ 💞
 </div>
 
 </div>
-
-<!-- หน้าเมนู -->
 
 <div class="menu-page" id="menuPage">
 
 <h1 class="menu-title">
-เลือกเมนู 💖
+MY LOVE 💖
 </h1>
 
 <div class="grid">
 
-<!-- วัน -->
-
 <div class="card" onclick="openPopup(
 '💖 เราคบกันมาแล้ว',
-
-'เราอยู่ด้วยกันมา '+days+' วันแล้วนะ 🌷<br><br>
-
-ขอบคุณที่อยู่ด้วยกันมาตลอดเลยนะ 💞'
+'เราอยู่ด้วยกันมา '+days+' วันแล้วนะ 🌷<br><br>ขอบคุณที่อยู่ด้วยกันมาตลอดเลยนะ 💞'
 )">
 <div class="icon">🍒</div>
 <h3>เราคบกันมานานเท่าไหร่แล้วนะ</h3>
 </div>
 
-<!-- จดหมาย -->
-
 <div class="card" onclick="openPopup(
 '💌 จดหมายถึงแฟน',
+'บางครั้งความสุขของเค้า ก็เป็นแค่การได้คุยกับเธอในทุกวันเองนะ 🌷<br><br>
 
-'บางครั้งความสุขของเค้า  
-ก็เป็นแค่การได้คุยกับเธอในทุกวันเองนะ 🌷<br><br>
+ไม่ต้องมีอะไรพิเศษมาก แค่มีเธออยู่ตรงนี้ ทุกอย่างก็น่ารักไปหมดแล้ว ✨<br><br>
 
-ไม่ต้องมีอะไรพิเศษมาก  
-แค่มีเธออยู่ตรงนี้  
-ทุกอย่างก็น่ารักไปหมดแล้ว ✨<br><br>
+เธอเหมือนเพลงโปรดที่ฟังแล้วไม่เบื่อ เหมือนรอยยิ้มที่ทำให้เค้ายิ้มตามได้ทุกครั้ง 💖<br><br>
 
-เธอเหมือนเพลงโปรดที่ฟังแล้วไม่เบื่อ  
-เหมือนรอยยิ้มที่ทำให้เค้ายิ้มตามได้ทุกครั้ง 💖<br><br>
-
-ขอบคุณที่เข้ามาเป็นโลกใบเล็ก ๆ  
-ที่โคตรสบายใจสำหรับเค้าเลย 🤍<br><br>
-
-ต่อให้วันไหนเหนื่อยแค่ไหน  
-แค่มีเธออยู่ เค้าก็โอเคแล้วนะ 💞'
+ขอบคุณที่เข้ามาเป็นโลกใบเล็ก ๆ ที่โคตรสบายใจสำหรับเค้าเลย 🤍'
 )">
 <div class="icon">🐰</div>
 <h3>จดหมายถึงคนที่น่ารัก</h3>
 </div>
-
-<!-- รู้ใจกัน -->
 
 <div class="card" onclick="showChoices()">
 <div class="icon">🎀</div>
 <h3>เรารู้ใจกันแค่ไหน</h3>
 </div>
 
+<div class="card" onclick="openPopup(
+'🧸 เธอชอบอะไร',
+'🍰 ชอบของหวาน<br>
+🎵 ชอบฟังเพลง<br>
+📷 ชอบถ่ายรูป<br>
+💖 ชอบความใส่ใจ<br>
+🌸 ชอบตอนอยู่ด้วยกัน'
+)">
+<div class="icon">🧸</div>
+<h3>เธอชอบอะไร</h3>
+</div>
+
+<div class="card" onclick="openPopup(
+'☁️ เธอไม่ชอบอะไร',
+'😿 ไม่ชอบการหายไปเฉย ๆ<br>
+💭 ไม่ชอบคิดมากคนเดียว<br>
+⌛ ไม่ชอบการรอ<br>
+🌧️ ไม่ชอบวันที่ทะเลาะกัน'
+)">
+<div class="icon">☁️</div>
+<h3>เธอไม่ชอบอะไร</h3>
+</div>
+
+<div class="card" onclick="openPopup(
+'📍 เราเจอกันที่ไหน',
+'เค้ายังจำวันที่เราเจอกันครั้งแรกได้อยู่เลยนะ 💖<br><br>
+
+ตอนนั้นยังไม่คิดเลยว่า เธอจะกลายเป็นคนสำคัญขนาดนี้ 🌷'
+)">
+<div class="icon">📌</div>
+<h3>เราเจอกันที่ไหน</h3>
+</div>
+
+<div class="card" onclick="openPopup(
+'✈️ ไปเที่ยวครั้งแรก',
+'ครั้งแรกที่เราไปเที่ยวด้วยกัน มันเป็นวันที่เค้ามีความสุขมากเลย ✨<br><br>
+
+แค่มีเธออยู่ข้าง ๆ ทุกที่ก็น่ารักไปหมด 💞'
+)">
+<div class="icon">✈️</div>
+<h3>ไปเที่ยวครั้งแรก</h3>
+</div>
+
+<div class="card" onclick="openMemory()">
+<div class="icon">📸</div>
+<h3>ความทรงจำ</h3>
+</div>
+
 </div>
 
 <div class="days" id="daysText"></div>
 
-<div class="bottom-text">
+<div class="footer">
 เค้ารักเธอน้า 💖
 </div>
 
 </div>
-
-<!-- popup -->
 
 <div class="popup" id="popup">
 
@@ -405,6 +488,13 @@ body{
 <h2 id="popupTitle"></h2>
 
 <p id="popupText"></p>
+
+<img
+id="memoryImage"
+class="memory-img"
+style="display:none;"
+src="https://i.pinimg.com/736x/59/6c/f2/596cf2f6fa83f8ef56bb0c8f06d8e9b3.jpg"
+>
 
 <button class="close" onclick="closePopup()">
 ปิด
@@ -416,7 +506,39 @@ body{
 
 <script>
 
-/* auto next */
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="bg-heart";
+
+heart.innerHTML=["💖","💕","💞","🌸"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(Math.random()*30+15)+"px";
+
+heart.style.animationDuration=(Math.random()*10+10)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(heart);
+
+}
+
+for(let i=0;i<50;i++){
+
+let spark=document.createElement("div");
+
+spark.className="spark";
+
+spark.style.left=Math.random()*100+"vw";
+
+spark.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(spark);
+
+}
 
 const inputs=document.querySelectorAll("input");
 
@@ -433,8 +555,6 @@ inputs[index+1].focus();
 });
 
 });
-
-/* รหัส */
 
 function checkPassword(){
 
@@ -462,8 +582,6 @@ alert("รหัสไม่ถูกน้าา 🥺");
 
 }
 
-/* popup */
-
 function openPopup(title,text){
 
 document.getElementById("popup").style.display="flex";
@@ -471,6 +589,8 @@ document.getElementById("popup").style.display="flex";
 document.getElementById("popupTitle").innerHTML=title;
 
 document.getElementById("popupText").innerHTML=text;
+
+document.getElementById("memoryImage").style.display="none";
 
 rainHearts();
 
@@ -482,7 +602,20 @@ document.getElementById("popup").style.display="none";
 
 }
 
-/* เพลง */
+function openMemory(){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupTitle").innerHTML="📸 ความทรงจำ";
+
+document.getElementById("popupText").innerHTML=
+"ทุกช่วงเวลาที่มีเธอ มันน่ารักไปหมดเลย 💞";
+
+document.getElementById("memoryImage").style.display="block";
+
+rainHearts();
+
+}
 
 function playMusic(){
 
@@ -490,15 +623,13 @@ document.getElementById("music").play();
 
 }
 
-/* หัวใจ */
-
 function rainHearts(){
 
-for(let i=0;i<40;i++){
+for(let i=0;i<50;i++){
 
 let heart=document.createElement("div");
 
-heart.className="heart";
+heart.className="bg-heart";
 
 heart.innerHTML=["💖","💕","💞","🌸"][Math.floor(Math.random()*4)];
 
@@ -518,8 +649,6 @@ heart.remove();
 
 }
 
-/* นับวัน */
-
 const startDate = new Date("2026-01-03");
 
 const now = new Date();
@@ -531,11 +660,9 @@ const days = Math.floor(diff / (1000*60*60*24));
 document.getElementById("daysText").innerHTML =
 "เราอยู่ด้วยกันมา 💞 "+days+" วัน";
 
-/* รู้ใจกัน */
-
 function showChoices(){
 
-const texts = [
+const texts=[
 
 "เค้าว่าเราเข้าใจกันเก่งมากเลยนะ 💖<br><br>แค่มองหน้าก็รู้แล้วว่าอีกคนกำลังคิดอะไรอยู่ 🌷",
 
@@ -547,16 +674,14 @@ const texts = [
 
 "บางทีเราอาจไม่ได้สมบูรณ์แบบ แต่เราเหมาะกันมากเลยนะ ☁️",
 
-"เค้าชอบเวลาที่เธอใส่ใจเรื่องเล็ก ๆ ของเค้า มันน่ารักมากเลย 💌",
-
-"ต่อให้วันนึงเราโตขึ้นแค่ไหน เค้าก็ยังอยากมีเธออยู่ข้าง ๆ นะ 🌸"
+"เค้าชอบเวลาที่เธอใส่ใจเรื่องเล็ก ๆ ของเค้า มันน่ารักมากเลย 💌"
 
 ];
 
-const randomText = texts[Math.floor(Math.random()*texts.length)];
+const randomText=texts[Math.floor(Math.random()*texts.length)];
 
 openPopup(
-'💖 เรารู้ใจกันแค่ไหน',
+'🎀 เรารู้ใจกันแค่ไหน',
 randomText
 );
 
