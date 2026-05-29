@@ -22,7 +22,7 @@ body{
   overflow-x:hidden;
 }
 
-/* หน้าโหลด */
+/* โหลด */
 
 .loading{
   position:fixed;
@@ -114,6 +114,7 @@ body{
   border-radius:15px;
   text-align:center;
   font-size:28px;
+  outline:none;
 }
 
 .enter-btn{
@@ -125,6 +126,13 @@ body{
   border-radius:50px;
   font-size:20px;
   cursor:pointer;
+}
+
+.bottom-text{
+  text-align:center;
+  margin-top:50px;
+  font-size:50px;
+  color:#ff5b9d;
 }
 
 /* เมนู */
@@ -214,6 +222,7 @@ body{
   padding:12px 30px;
   border-radius:50px;
   font-size:18px;
+  cursor:pointer;
 }
 
 @keyframes popup{
@@ -243,13 +252,6 @@ body{
   }
 }
 
-.bottom-text{
-  text-align:center;
-  margin-top:50px;
-  font-size:50px;
-  color:#ff5b9d;
-}
-
 /* เพลง */
 
 .music-btn{
@@ -267,6 +269,22 @@ body{
   box-shadow:0 5px 20px rgba(0,0,0,.15);
   cursor:pointer;
   z-index:99;
+}
+
+/* นับวัน */
+
+.days{
+  margin-top:30px;
+  color:#ff4f95;
+  font-size:28px;
+}
+
+/* รูป */
+
+.memory-img{
+  width:100%;
+  border-radius:20px;
+  margin-top:15px;
 }
 
 </style>
@@ -292,7 +310,7 @@ body{
 <source src="https://files.catbox.moe/6r8w5p.mp3">
 </audio>
 
-<!-- ใส่รหัส -->
+<!-- หน้าใส่รหัส -->
 
 <div class="password-page" id="passwordPage">
 
@@ -321,37 +339,39 @@ body{
 
 </div>
 
-<!-- เมนู -->
+<!-- หน้าเมนู -->
 
 <div class="menu-page" id="menuPage">
 
 <h1 class="menu-title">
-เลือกเมนู
+เลือกเมนู 💖
 </h1>
 
 <div class="grid">
 
-<div class="card" onclick="openPopup('💖 เราคบกันมาแล้ว','เราอยู่ด้วยกันมา 365 วันแล้วน้าาา 🌷')">
+<div class="card" onclick="openPopup('💖 เราคบกันมาแล้ว','เราอยู่ด้วยกันมา '+days+' วันแล้วนะ 🌷')">
 <div class="icon">🍒</div>
 <h3>เราคบกันมานานเท่าไหร่แล้วนะ</h3>
 </div>
 
-<div class="card" onclick="openPopup('💌 จดหมายถึงแฟน','ขอบคุณที่เข้ามาเป็นความสุขในทุกวันของเค้านะ 💖')">
+<div class="card" onclick="openPopup('💌 จดหมายถึงแฟน','ขอบคุณที่อยู่กับเค้ามาตลอดเลยนะ เค้ารักเธอมากที่สุดเลย 💖')">
 <div class="icon">🐰</div>
 <h3>จดหมายถึงคนที่น่ารัก</h3>
 </div>
 
-<div class="card" onclick="openPopup('🎂 เรารู้จักกัน','เค้าดีใจมากเลยที่วันนั้นได้เจอเธอ ✨')">
+<div class="card" onclick="openPopup('🎂 เรารู้จักกัน','ตั้งแต่วันที่เจอเธอ ชีวิตเค้ามีความสุขขึ้นเยอะมาก ✨')">
 <div class="icon">🧁</div>
 <h3>เรารู้ใจกันมากแค่ไหน</h3>
 </div>
 
-<div class="card" onclick="openPopup('📸 ความทรงจำ','ทุกช่วงเวลาที่มีเธอ มันน่ารักหมดเลย 💞')">
+<div class="card" onclick="openMemory()">
 <div class="icon">📷</div>
 <h3>ความทรงจำ</h3>
 </div>
 
 </div>
+
+<div class="days" id="daysText"></div>
 
 <div class="bottom-text">
 เลือกเมนู
@@ -369,6 +389,13 @@ body{
 
 <p id="popupText"></p>
 
+<img
+id="memoryImage"
+class="memory-img"
+style="display:none;"
+src="https://i.pinimg.com/736x/59/6c/f2/596cf2f6fa83f8ef56bb0c8f06d8e9b3.jpg"
+>
+
 <button class="close" onclick="closePopup()">
 ปิด
 </button>
@@ -379,7 +406,7 @@ body{
 
 <script>
 
-/* auto next */
+/* input auto */
 
 const inputs=document.querySelectorAll("input");
 
@@ -388,7 +415,9 @@ inputs.forEach((input,index)=>{
 input.addEventListener("input",()=>{
 
 if(input.value.length===1 && index < inputs.length-1){
+
 inputs[index+1].focus();
+
 }
 
 });
@@ -405,7 +434,7 @@ inputs.forEach(i=>{
 pass += i.value;
 });
 
-if(pass==="2911"){
+if(pass==="0301"){
 
 document.getElementById("passwordPage").style.display="none";
 
@@ -413,9 +442,12 @@ document.getElementById("menuPage").style.display="block";
 
 rainHearts();
 
+playMusic();
+
 }else{
 
 alert("รหัสไม่ถูกน้าา 🥺");
+
 }
 
 }
@@ -429,6 +461,22 @@ document.getElementById("popup").style.display="flex";
 document.getElementById("popupTitle").innerHTML=title;
 
 document.getElementById("popupText").innerHTML=text;
+
+document.getElementById("memoryImage").style.display="none";
+
+rainHearts();
+
+}
+
+function openMemory(){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupTitle").innerHTML="📸 ความทรงจำ";
+
+document.getElementById("popupText").innerHTML="ทุกช่วงเวลาที่มีเธอ มันน่ารักไปหมดเลย 💞";
+
+document.getElementById("memoryImage").style.display="block";
 
 rainHearts();
 
@@ -475,6 +523,19 @@ heart.remove();
 }
 
 }
+
+/* นับวัน */
+
+const startDate = new Date("2025-03-01");
+
+const now = new Date();
+
+const diff = now - startDate;
+
+const days = Math.floor(diff / (1000*60*60*24));
+
+document.getElementById("daysText").innerHTML =
+"เราอยู่ด้วยกันมา 💞 "+days+" วัน";
 
 </script>
 
