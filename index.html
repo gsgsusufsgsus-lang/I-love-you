@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>My Love Gift 🎁</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love 💖</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 
 <style>
@@ -18,252 +17,256 @@
 }
 
 body{
-  overflow:hidden;
-  height:100vh;
-  background:
-  linear-gradient(180deg,#ffd7e8,#fff5fb);
+  background:linear-gradient(to bottom,#ffe1ec,#fff7fb);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* หน้าโหลด */
+
+.loading{
+  position:fixed;
+  inset:0;
+  background:#ffd7e8;
   display:flex;
   justify-content:center;
   align-items:center;
-  position:relative;
+  flex-direction:column;
+  z-index:999;
+  animation:hideLoading 1s ease forwards;
+  animation-delay:3s;
 }
 
-/* พื้นหลังวิ้งๆ */
-
-.bg-heart{
-  position:absolute;
-  color:#ffffff88;
-  animation:floatHeart linear infinite;
-  z-index:0;
-}
-
-@keyframes floatHeart{
-  from{
-    transform:translateY(110vh) rotate(0deg);
-    opacity:0;
-  }
-
-  20%{
-    opacity:1;
-  }
-
-  to{
-    transform:translateY(-120vh) rotate(360deg);
-    opacity:0;
-  }
-}
-
-/* กล่องหลัก */
-
-.container{
-  width:90%;
-  max-width:520px;
-  text-align:center;
-  z-index:10;
-  animation:fade 1s ease;
-}
-
-.title{
-  font-size:58px;
-  line-height:1.3;
+.loading h1{
   color:#ff4f95;
-  text-shadow:3px 3px white;
+  font-size:50px;
 }
 
-.sub{
-  margin-top:10px;
+.loading p{
   color:#777;
-  font-size:23px;
+  margin-top:10px;
+  font-size:22px;
 }
 
-/* ของขวัญ */
-
-.gift{
-  width:290px;
-  margin-top:20px;
-  cursor:pointer;
-  animation:
-  floating 2s ease-in-out infinite,
-  glow 2s infinite;
-  transition:.4s;
-  filter:drop-shadow(0 15px 25px rgba(0,0,0,.15));
-}
-
-.gift:hover{
-  transform:scale(1.05);
-}
-
-@keyframes floating{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
-  100%{transform:translateY(0);}
-}
-
-@keyframes glow{
-  0%{
-    filter:drop-shadow(0 0 5px #ff8dc1);
-  }
-
-  50%{
-    filter:drop-shadow(0 0 20px #ff5fa2);
-  }
-
-  100%{
-    filter:drop-shadow(0 0 5px #ff8dc1);
-  }
-}
-
-/* ปุ่ม */
-
-.btn{
-  margin-top:25px;
-  border:none;
-  padding:15px 45px;
-  border-radius:999px;
-  background:linear-gradient(45deg,#ff5fa2,#ff80b8);
-  color:white;
-  font-size:23px;
-  cursor:pointer;
-  transition:.3s;
-  box-shadow:0 10px 25px rgba(255,95,162,.35);
-}
-
-.btn:hover{
-  transform:scale(1.08);
-}
-
-/* กล่องข้อความ */
-
-.message-box{
-  display:none;
-  margin-top:30px;
-  background:white;
-  padding:30px;
-  border-radius:35px;
-  box-shadow:0 15px 40px rgba(0,0,0,.12);
-  animation:popup .9s ease;
-}
-
-.message{
-  color:#ff4f95;
-  font-size:28px;
-  line-height:1.8;
-}
-
-/* ปุ่มเสริม */
-
-.action-group{
-  margin-top:25px;
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.action-btn{
-  border:none;
-  background:#fff0f6;
-  color:#ff4f95;
-  padding:12px 22px;
-  border-radius:50px;
-  cursor:pointer;
-  font-size:18px;
-  transition:.3s;
-}
-
-.action-btn:hover{
-  transform:scale(1.08);
-  background:#ffd6e8;
-}
-
-/* รูปหัวใจ */
-
-.photo{
-  width:140px;
-  height:140px;
+.loader{
+  width:80px;
+  height:80px;
   border-radius:50%;
-  object-fit:cover;
+  border:8px solid white;
+  border-top:8px solid #ff4f95;
+  animation:spin 1s linear infinite;
   margin-top:20px;
-  border:6px solid white;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-  animation:spinSlow 10s linear infinite;
 }
 
-@keyframes spinSlow{
-  from{
-    transform:rotate(0deg);
-  }
+@keyframes spin{
   to{
     transform:rotate(360deg);
   }
 }
 
-/* ดาว */
-
-.spark{
-  position:absolute;
-  width:8px;
-  height:8px;
-  background:white;
-  border-radius:50%;
-  animation:sparkle 2s linear infinite;
+@keyframes hideLoading{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
 }
 
-@keyframes sparkle{
-  0%{
-    transform:scale(0);
-    opacity:0;
-  }
-  50%{
-    transform:scale(1);
-    opacity:1;
-  }
-  100%{
-    transform:scale(0);
-    opacity:0;
-  }
+/* หน้าใส่รหัส */
+
+.password-page{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  flex-direction:column;
+  padding:20px;
+}
+
+.pass-box{
+  background:#ff74ab;
+  padding:35px;
+  width:320px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.pass-box h2{
+  color:white;
+  font-size:35px;
+}
+
+.pass-box p{
+  color:white;
+  margin:10px 0 20px;
+}
+
+.inputs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.inputs input{
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:15px;
+  text-align:center;
+  font-size:28px;
+}
+
+.enter-btn{
+  margin-top:20px;
+  background:white;
+  border:none;
+  color:#ff4f95;
+  padding:12px 35px;
+  border-radius:50px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* เมนู */
+
+.menu-page{
+  display:none;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.menu-title{
+  color:#555;
+  font-size:35px;
+  margin-bottom:25px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  max-width:500px;
+  margin:auto;
+}
+
+.card{
+  background:#ff6fa9;
+  border-radius:25px;
+  padding:30px 20px;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
+
+.card:hover{
+  transform:scale(1.05);
+}
+
+.card .icon{
+  font-size:45px;
+}
+
+.card h3{
+  margin-top:10px;
+  font-size:24px;
 }
 
 /* popup */
 
+.popup{
+  position:fixed;
+  inset:0;
+  background:#00000077;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:99;
+}
+
+.popup-content{
+  width:90%;
+  max-width:400px;
+  background:white;
+  border-radius:30px;
+  padding:30px;
+  text-align:center;
+  animation:popup .4s ease;
+}
+
+.popup-content h2{
+  color:#ff4f95;
+  margin-bottom:15px;
+  font-size:35px;
+}
+
+.popup-content p{
+  font-size:24px;
+  line-height:1.7;
+  color:#666;
+}
+
+.close{
+  margin-top:20px;
+  border:none;
+  background:#ff4f95;
+  color:white;
+  padding:12px 30px;
+  border-radius:50px;
+  font-size:18px;
+}
+
 @keyframes popup{
-  0%{
-    transform:scale(.4);
+  from{
+    transform:scale(.5);
     opacity:0;
   }
-  100%{
+  to{
     transform:scale(1);
     opacity:1;
   }
 }
 
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
+/* หัวใจ */
 
+.heart{
+  position:fixed;
+  top:-20px;
+  animation:fall linear forwards;
+  z-index:1;
+}
+
+@keyframes fall{
   to{
-    opacity:1;
-    transform:translateY(0);
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
   }
 }
 
-/* countdown */
-
-.count{
-  margin-top:15px;
-  font-size:22px;
-  color:#ff4f95;
+.bottom-text{
+  text-align:center;
+  margin-top:50px;
+  font-size:50px;
+  color:#ff5b9d;
 }
 
-/* ล่าง */
+/* เพลง */
 
-.footer{
-  position:absolute;
-  bottom:15px;
-  font-size:16px;
-  color:#999;
+.music-btn{
+  position:fixed;
+  top:15px;
+  right:15px;
+  background:white;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
+  cursor:pointer;
+  z-index:99;
 }
 
 </style>
@@ -271,214 +274,207 @@ body{
 
 <body>
 
-<!-- วิ้งพื้นหลัง -->
+<!-- โหลด -->
 
-<script>
-for(let i=0;i<35;i++){
-
-  let bg=document.createElement("div");
-
-  bg.className="bg-heart";
-
-  bg.innerHTML=["💖","💕","💗","💞","🌸"][Math.floor(Math.random()*5)];
-
-  bg.style.left=Math.random()*100+"vw";
-
-  bg.style.fontSize=(Math.random()*30+15)+"px";
-
-  bg.style.animationDuration=(Math.random()*10+10)+"s";
-
-  bg.style.animationDelay=Math.random()*5+"s";
-
-  document.body.appendChild(bg);
-}
-</script>
-
-<div class="container">
-
-  <div class="title">
-    มีของขวัญ 🎀<br>
-    ส่งถึงแฟนเค้า
-  </div>
-
-  <div class="sub">
-    กดเปิดดูได้เลยน้าา 💗
-  </div>
-
-  <img
-  class="gift"
-  onclick="openGift()"
-  src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png"
-  >
-
-  <br>
-
-  <button class="btn" onclick="openGift()">
-    เปิดกล่อง 💝
-  </button>
-
-  <div class="message-box" id="box">
-
-    <img
-    class="photo"
-    src="https://i.pinimg.com/736x/59/6c/f2/596cf2f6fa83f8ef56bb0c8f06d8e9b3.jpg"
-    >
-
-    <div class="message">
-      เค้ารักเธอมากที่สุดเลยนะ 💖<br><br>
-
-      ขอบคุณที่อยู่กับเค้า<br>
-      ในทุกวันเลย 🌷<br><br>
-
-      ขอให้เรามีกันแบบนี้<br>
-      ไปนาน ๆ เลยน้า ✨
-    </div>
-
-    <div class="count" id="countdown"></div>
-
-    <div class="action-group">
-
-      <button class="action-btn" onclick="playMusic()">
-        🎵 เปิดเพลง
-      </button>
-
-      <button class="action-btn" onclick="showLove()">
-        💌 ข้อความลับ
-      </button>
-
-      <button class="action-btn" onclick="rainHearts()">
-        💖 โปรยหัวใจ
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="footer">
-  made with love 💞
+<div class="loading">
+  <h1>กำลังโหลด 💖</h1>
+  <p>ของขวัญกำลังมาหาเธอ</p>
+  <div class="loader"></div>
 </div>
 
 <!-- เพลง -->
+
+<div class="music-btn" onclick="playMusic()">
+🎵
+</div>
 
 <audio id="music">
 <source src="https://files.catbox.moe/6r8w5p.mp3">
 </audio>
 
+<!-- ใส่รหัส -->
+
+<div class="password-page" id="passwordPage">
+
+<div class="pass-box">
+
+<h2>กรอกรหัส 💌</h2>
+
+<p>คำใบ้ : วันครบรอบของเรา</p>
+
+<div class="inputs">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+</div>
+
+<button class="enter-btn" onclick="checkPassword()">
+เข้าสู่ระบบ
+</button>
+
+</div>
+
+<div class="bottom-text">
+ใส่รหัสน้าา~
+</div>
+
+</div>
+
+<!-- เมนู -->
+
+<div class="menu-page" id="menuPage">
+
+<h1 class="menu-title">
+เลือกเมนู
+</h1>
+
+<div class="grid">
+
+<div class="card" onclick="openPopup('💖 เราคบกันมาแล้ว','เราอยู่ด้วยกันมา 365 วันแล้วน้าาา 🌷')">
+<div class="icon">🍒</div>
+<h3>เราคบกันมานานเท่าไหร่แล้วนะ</h3>
+</div>
+
+<div class="card" onclick="openPopup('💌 จดหมายถึงแฟน','ขอบคุณที่เข้ามาเป็นความสุขในทุกวันของเค้านะ 💖')">
+<div class="icon">🐰</div>
+<h3>จดหมายถึงคนที่น่ารัก</h3>
+</div>
+
+<div class="card" onclick="openPopup('🎂 เรารู้จักกัน','เค้าดีใจมากเลยที่วันนั้นได้เจอเธอ ✨')">
+<div class="icon">🧁</div>
+<h3>เรารู้ใจกันมากแค่ไหน</h3>
+</div>
+
+<div class="card" onclick="openPopup('📸 ความทรงจำ','ทุกช่วงเวลาที่มีเธอ มันน่ารักหมดเลย 💞')">
+<div class="icon">📷</div>
+<h3>ความทรงจำ</h3>
+</div>
+
+</div>
+
+<div class="bottom-text">
+เลือกเมนู
+</div>
+
+</div>
+
+<!-- popup -->
+
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<h2 id="popupTitle"></h2>
+
+<p id="popupText"></p>
+
+<button class="close" onclick="closePopup()">
+ปิด
+</button>
+
+</div>
+
+</div>
+
 <script>
 
-/* เปิดกล่อง */
+/* auto next */
 
-function openGift(){
+const inputs=document.querySelectorAll("input");
 
-  document.getElementById("box").style.display="block";
+inputs.forEach((input,index)=>{
 
-  rainHearts();
+input.addEventListener("input",()=>{
 
-  createSparkles();
+if(input.value.length===1 && index < inputs.length-1){
+inputs[index+1].focus();
+}
 
-  playMusic();
+});
+
+});
+
+/* รหัส */
+
+function checkPassword(){
+
+let pass="";
+
+inputs.forEach(i=>{
+pass += i.value;
+});
+
+if(pass==="2911"){
+
+document.getElementById("passwordPage").style.display="none";
+
+document.getElementById("menuPage").style.display="block";
+
+rainHearts();
+
+}else{
+
+alert("รหัสไม่ถูกน้าา 🥺");
+}
+
+}
+
+/* popup */
+
+function openPopup(title,text){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupTitle").innerHTML=title;
+
+document.getElementById("popupText").innerHTML=text;
+
+rainHearts();
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
 }
 
 /* เพลง */
 
 function playMusic(){
 
-  document.getElementById("music").play();
+document.getElementById("music").play();
+
 }
 
-/* หัวใจร่วง */
+/* หัวใจ */
 
 function rainHearts(){
 
-  for(let i=0;i<80;i++){
+for(let i=0;i<50;i++){
 
-    let heart=document.createElement("div");
+let heart=document.createElement("div");
 
-    heart.innerHTML=["💖","💗","💕","💞","🌸"][Math.floor(Math.random()*5)];
+heart.className="heart";
 
-    heart.style.position="absolute";
+heart.innerHTML=["💖","💕","💞","🌸"][Math.floor(Math.random()*4)];
 
-    heart.style.left=Math.random()*100+"vw";
+heart.style.left=Math.random()*100+"vw";
 
-    heart.style.top="-20px";
+heart.style.fontSize=(Math.random()*25+20)+"px";
 
-    heart.style.fontSize=(Math.random()*25+20)+"px";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
 
-    heart.style.animation=`fall ${(Math.random()*3)+2}s linear forwards`;
+document.body.appendChild(heart);
 
-    document.body.appendChild(heart);
+setTimeout(()=>{
+heart.remove();
+},5000);
 
-    setTimeout(()=>{
-      heart.remove();
-    },5000);
-  }
 }
 
-/* sparkle */
-
-function createSparkles(){
-
-  for(let i=0;i<60;i++){
-
-    let s=document.createElement("div");
-
-    s.className="spark";
-
-    s.style.left=Math.random()*100+"vw";
-
-    s.style.top=Math.random()*100+"vh";
-
-    document.body.appendChild(s);
-
-    setTimeout(()=>{
-      s.remove();
-    },2000);
-  }
 }
-
-/* popup */
-
-function showLove(){
-
-  alert("เค้าจะรักเธอทุกวันเลยนะคนเก่ง 💖");
-}
-
-/* countdown */
-
-const startDate = new Date("2025-01-01");
-
-function updateCountdown(){
-
-  const now = new Date();
-
-  const diff = now - startDate;
-
-  const days = Math.floor(diff / (1000*60*60*24));
-
-  document.getElementById("countdown").innerHTML =
-  "เราอยู่ด้วยกันมา 💞 " + days + " วัน";
-}
-
-setInterval(updateCountdown,1000);
-
-updateCountdown();
-
-/* css animation */
-
-const style=document.createElement('style');
-
-style.innerHTML=`
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0;
-  }
-}
-`;
-
-document.head.appendChild(style);
 
 </script>
 
