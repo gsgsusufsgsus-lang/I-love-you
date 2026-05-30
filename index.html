@@ -314,8 +314,6 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* choice button */
-
 .choice-btn{
 display:block;
 width:100%;
@@ -333,8 +331,6 @@ transition:.3s;
 .choice-btn:hover{
 transform:scale(1.03);
 }
-
-/* footer */
 
 .footer{
 margin-top:50px;
@@ -373,7 +369,7 @@ color:#ff4f95;
 
 <h2>กรอกรหัส 💌</h2>
 
-<p>คำใบ้ : วันสำคัญของเรา</p>
+<p>คำใบ้ : วันครบรอบของเรา</p>
 
 <div class="inputs">
 <input maxlength="1">
@@ -411,7 +407,7 @@ MY LOVE 💖
 </div>
 
 <div class="card" onclick="openPopup(
-'💌 จดหมายถึงแฟน',
+'💌 จดหมายถึงเธอ',
 'บางครั้งความสุขของเค้า ก็เป็นแค่การได้คุยกับเธอในทุกวันเองนะ 🌷<br><br>ไม่ต้องมีอะไรพิเศษมาก แค่มีเธออยู่ตรงนี้ ทุกอย่างก็น่ารักไปหมดแล้ว ✨<br><br>เธอเหมือนเพลงโปรดที่ฟังแล้วไม่เบื่อเลย 💖'
 )">
 <div class="icon">🐰</div>
@@ -428,7 +424,7 @@ MY LOVE 💖
 <div class="days" id="daysText"></div>
 
 <div class="footer">
-เค้ารักเธอน้า 💖
+เค้ารักเธอที่สุดเลยนะ 💖
 </div>
 
 </div>
@@ -451,7 +447,7 @@ MY LOVE 💖
 
 <script>
 
-/* hearts */
+/* bg hearts */
 
 for(let i=0;i<40;i++){
 
@@ -466,8 +462,6 @@ heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(Math.random()*30+15)+"px";
 
 heart.style.animationDuration=(Math.random()*10+10)+"s";
-
-heart.style.animationDelay=Math.random()*5+"s";
 
 document.body.appendChild(heart);
 
@@ -489,7 +483,7 @@ document.body.appendChild(spark);
 
 }
 
-/* auto next */
+/* auto input */
 
 const inputs=document.querySelectorAll("input");
 
@@ -529,7 +523,7 @@ playMusic();
 
 }else{
 
-alert("รหัสไม่ถูกน้าา 🥺");
+alert("รหัสไม่ถูกน้า 🥺");
 
 }
 
@@ -563,7 +557,7 @@ document.getElementById("music").play();
 
 }
 
-/* rain hearts */
+/* hearts effect */
 
 function rainHearts(){
 
@@ -606,46 +600,50 @@ document.getElementById("daysText").innerHTML =
 
 /* questions */
 
-function showChoices(){
+let currentQuestion = 0;
 
 const questions = [
 
 {
 q:"เราไปเที่ยวครั้งแรกที่ไหน 💖",
-a:[
-"⛰️ ภูกระดึง",
-"🌊 ทะเล",
-"🎡 สวนสนุก"
-],
+a:["⛰️ ภูกระดึง","🌊 ทะเล","🎡 สวนสนุก"],
 correct:"⛰️ ภูกระดึง",
-message:"💞 ถูกต้องงงง<br><br>ภูกระดึงเป็นทริปแรกของเราเลยนะ ✨<br><br>ถึงจะเดินเหนื่อยแค่ไหน แต่แค่มีเธออยู่ข้าง ๆ ทุกอย่างก็ดีไปหมดเลย 🤍<br><br>เค้าชอบทั้งบรรยากาศ ทั้งรูปที่เราถ่ายด้วยกัน แล้วก็รอยยิ้มของเธอในวันนั้นมาก ๆ 🌷"
+message:"💞 ถูกต้องงงง<br><br>ภูกระดึงเป็นทริปแรกของเราเลยนะ ✨"
 },
 
 {
-q:"เค้าชอบอะไรมากที่สุด 💖",
-a:[
-"🍰 ของหวาน",
-"🎵 ฟังเพลง",
-"🤍 ความใส่ใจ"
-],
-correct:"🤍 ความใส่ใจ",
-message:"💌 ถูกต้องงง<br><br>สำหรับเค้า ความใส่ใจเล็ก ๆ น้อย ๆ มันน่ารักมากเลยนะ 💞"
+q:"เค้าชอบให้เธอเรียกว่าอะไร 💖",
+a:["🧸 เด็กดื้อ","💞 ที่รัก","🐷 อ้วน"],
+correct:"🐷 อ้วน",
+message:"🤍 ถูกต้องง<br><br>เวลาเธอเรียกว่าอ้วน มันน่ารักมากเลยนะ 💖"
 },
 
 {
-q:"เค้าไม่ชอบอะไรที่สุด 🥺",
-a:[
-"😿 การหายไปเฉย ๆ",
-"⌛ การรอ",
-"🌧️ วันที่ทะเลาะกัน"
-],
-correct:"😿 การหายไปเฉย ๆ",
-message:"🥺 ถูกต้องง<br><br>เค้าไม่ชอบเวลาที่อีกคนหายไปเฉย ๆ เพราะมันทำให้คิดถึงมากเลย 🤍"
+q:"เค้าชอบเวลาเธอทำอะไรมากที่สุด 💖",
+a:["🫂 กอดเค้า","💬 บอกรัก","😋 งอแงใส่"],
+correct:"🫂 กอดเค้า",
+message:"🤍 ถูกต้องง<br><br>กอดของเธอทำให้เค้าสบายใจที่สุดเลย 💞"
+},
+
+{
+q:"เวลาที่เค้ามีความสุขที่สุดคือ 🥺",
+a:["📱 ตอนคุยกับเธอ","🍜 ตอนกินของอร่อย","😴 ตอนนอน"],
+correct:"📱 ตอนคุยกับเธอ",
+message:"💌 ถูกต้องง<br><br>แค่ได้คุยกับเธอ วันนั้นก็ดีไปหมดเลย ✨"
+},
+
+{
+q:"เวลาเธอยิ้ม เค้าจะ 🥺",
+a:["😊 ยิ้มตาม","📸 อยากถ่ายรูป","💖 ใจละลาย"],
+correct:"💖 ใจละลาย",
+message:"🤍 ถูกต้องงง<br><br>ยิ้มทีไร ใจเค้าละลายทุกทีเลย 💞"
 }
 
 ];
 
-const random = questions[Math.floor(Math.random()*questions.length)];
+function showChoices(){
+
+const random = questions[currentQuestion];
 
 let buttons = "";
 
@@ -666,30 +664,74 @@ ${choice}
 
 document.getElementById("popup").style.display="flex";
 
-document.getElementById("popupTitle").innerHTML =
+document.getElementById("popupTitle").innerHTML=
 "🎀 เรารู้ใจกันแค่ไหน";
 
-document.getElementById("popupText").innerHTML =
+document.getElementById("popupText").innerHTML=
 random.q + "<br><br>" + buttons;
 
 }
-
-/* answer */
 
 function checkAnswer(choice,correct,message){
 
 if(choice===correct){
 
-document.getElementById("popupText").innerHTML = message;
+document.getElementById("popupText").innerHTML=
+message +
+`<br><br>
+
+<button class="choice-btn" onclick="nextQuestion()">
+ข้อถัดไป 💞
+</button>`;
 
 rainHearts();
 
 }else{
 
-document.getElementById("popupText").innerHTML =
-"🥺 ยังไม่ถูกน้า ลองใหม่อีกครั้งง";
+document.getElementById("popupText").innerHTML=
+"🥺 ยังไม่ถูกน้า ลองใหม่อีกครั้งง<br><br>
+
+<button class='choice-btn' onclick='nextQuestion()'>
+ไปข้อถัดไป 🌷
+</button>";
 
 }
+
+}
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion >= questions.length){
+
+document.getElementById("popupText").innerHTML=
+`
+💖 จบแล้ววว 💖
+<br><br>
+เก่งมากเลยนะที่ตอบจนจบ 🌷
+<br><br>
+เค้ารักเธอที่สุดเลย 🤍
+<br><br>
+
+<button class="choice-btn" onclick="restartQuestions()">
+เล่นใหม่อีกครั้ง 🎀
+</button>
+`;
+
+return;
+
+}
+
+showChoices();
+
+}
+
+function restartQuestions(){
+
+currentQuestion = 0;
+
+showChoices();
 
 }
 
