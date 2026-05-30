@@ -17,69 +17,20 @@ font-family:'Itim',cursive;
 }
 
 body{
-background:linear-gradient(180deg,#ffdce9,#fff7fb);
+background:linear-gradient(180deg,#ffe1ec,#fff7fb);
 overflow-x:hidden;
 min-height:100vh;
 }
 
-/* loading */
-
-.loading{
-position:fixed;
-inset:0;
-background:#ffdce9;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
-animation:hideLoading 1s ease forwards;
-animation-delay:3s;
-}
-
-.loading h1{
-font-size:55px;
-color:#ff4f95;
-}
-
-.loading p{
-margin-top:10px;
-font-size:22px;
-color:#777;
-}
-
-.loader{
-width:80px;
-height:80px;
-border-radius:50%;
-border:8px solid white;
-border-top:8px solid #ff4f95;
-margin-top:20px;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-to{
-transform:rotate(360deg);
-}
-}
-
-@keyframes hideLoading{
-to{
-opacity:0;
-visibility:hidden;
-}
-}
-
-/* hearts */
+/* หัวใจพื้นหลัง */
 
 .bg-heart{
 position:fixed;
-top:-20px;
-animation:fall linear forwards;
+top:-10px;
 z-index:0;
-opacity:.8;
+animation:fall linear forwards;
 pointer-events:none;
+opacity:.8;
 }
 
 @keyframes fall{
@@ -93,12 +44,11 @@ opacity:0;
 
 .spark{
 position:fixed;
-width:10px;
-height:10px;
+width:8px;
+height:8px;
 background:white;
 border-radius:50%;
 animation:spark 2s linear infinite;
-z-index:1;
 pointer-events:none;
 }
 
@@ -117,26 +67,7 @@ opacity:0;
 }
 }
 
-/* music */
-
-.music-btn{
-position:fixed;
-top:15px;
-right:15px;
-width:65px;
-height:65px;
-background:white;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
-z-index:999;
-cursor:pointer;
-}
-
-/* password */
+/* หน้าใส่รหัส */
 
 .password-page{
 display:flex;
@@ -150,22 +81,23 @@ z-index:2;
 }
 
 .pass-box{
-background:#ff74ab;
+background:#ff7eb3;
 padding:35px;
-width:330px;
 border-radius:35px;
+width:340px;
 text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
 .pass-box h2{
-font-size:38px;
+font-size:40px;
 color:white;
 }
 
 .pass-box p{
-color:white;
 margin:15px 0;
 font-size:20px;
+color:white;
 }
 
 .inputs{
@@ -196,26 +128,26 @@ cursor:pointer;
 }
 
 .big-text{
-margin-top:50px;
-font-size:38px;
-color:#ff5b9d;
+margin-top:45px;
+font-size:35px;
+color:#ff5d9e;
 text-align:center;
 }
 
-/* menu */
+/* เมนู */
 
 .menu-page{
 display:none;
 padding:40px 20px 100px;
-text-align:center;
 position:relative;
 z-index:2;
+text-align:center;
 }
 
 .menu-title{
-font-size:45px;
+font-size:48px;
 color:#ff4f95;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .grid{
@@ -227,16 +159,17 @@ margin:auto;
 }
 
 .card{
-background:linear-gradient(135deg,#ff74ab,#ff9cc4);
+background:linear-gradient(135deg,#ff76ac,#ff9bc2);
 padding:28px 20px;
 border-radius:30px;
 color:white;
 cursor:pointer;
 transition:.3s;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-5px) scale(1.03);
 }
 
 .icon{
@@ -254,12 +187,12 @@ line-height:1.4;
 .popup{
 position:fixed;
 inset:0;
-background:#00000077;
+background:#00000070;
 display:none;
 justify-content:center;
 align-items:center;
-z-index:999;
 padding:20px;
+z-index:999;
 }
 
 .popup-content{
@@ -269,16 +202,30 @@ max-width:430px;
 padding:35px;
 border-radius:35px;
 text-align:center;
+animation:popup .4s ease;
+max-height:90vh;
+overflow:auto;
+}
+
+@keyframes popup{
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
 }
 
 .popup-content h2{
-font-size:38px;
+font-size:35px;
 color:#ff4f95;
 margin-bottom:15px;
 }
 
 .popup-content p{
-font-size:23px;
+font-size:22px;
 line-height:1.8;
 color:#666;
 }
@@ -297,8 +244,8 @@ cursor:pointer;
 .choice-btn{
 display:block;
 width:100%;
-margin-top:12px;
 padding:14px;
+margin-top:12px;
 border:none;
 border-radius:18px;
 background:#ff74ab;
@@ -307,16 +254,32 @@ font-size:20px;
 cursor:pointer;
 }
 
-.footer{
-margin-top:50px;
-font-size:30px;
-color:#ff5b9d;
+/* นับเวลา */
+
+.counter-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
-.days{
-margin-top:25px;
+.time-card{
+background:#ff74ab;
+padding:15px;
+border-radius:20px;
+min-width:85px;
+color:white;
+}
+
+.time-card h1{
+font-size:28px;
+}
+
+.footer{
+margin-top:60px;
 font-size:30px;
-color:#ff4f95;
+color:#ff5b9d;
 }
 
 </style>
@@ -324,19 +287,12 @@ color:#ff4f95;
 
 <body>
 
-<div class="loading">
-<h1>กำลังโหลด 💖</h1>
-<p>ของขวัญกำลังเดินทางมาหาเธอ</p>
-<div class="loader"></div>
-</div>
-
-<div class="music-btn" onclick="playMusic()">
-🎵
-</div>
-
+<!-- เพลง -->
 <audio id="music" loop>
 <source src="https://files.catbox.moe/6r8w5p.mp3">
 </audio>
+
+<!-- หน้าใส่รหัส -->
 
 <div class="password-page" id="passwordPage">
 
@@ -360,10 +316,12 @@ color:#ff4f95;
 </div>
 
 <div class="big-text">
-มีแค่เธอที่รู้รหัสนี้ 💞
+มีแค่เธอที่รู้รหัสนี้ 💖
 </div>
 
 </div>
+
+<!-- เมนู -->
 
 <div class="menu-page" id="menuPage">
 
@@ -373,12 +331,9 @@ MY LOVE 💖
 
 <div class="grid">
 
-<div class="card" onclick="openPopup(
-'💖 เราคบกันมาแล้ว',
-'เราอยู่ด้วยกันมา '+days+' วันแล้วนะ 🌷<br><br>ขอบคุณที่อยู่ด้วยกันมาตลอดเลยนะ 💞'
-)">
-<div class="icon">🍒</div>
-<h3>เราคบกันมากี่วันแล้ว</h3>
+<div class="card" onclick="showLoveTime()">
+<div class="icon">⏳</div>
+<h3>เราคบกันมานานแค่ไหน</h3>
 </div>
 
 <div class="card" onclick="openPopup(
@@ -396,13 +351,13 @@ MY LOVE 💖
 
 </div>
 
-<div class="days" id="daysText"></div>
-
 <div class="footer">
 เค้ารักเธอที่สุดเลยนะ 💖
 </div>
 
 </div>
+
+<!-- popup -->
 
 <div class="popup" id="popup">
 
@@ -411,6 +366,44 @@ MY LOVE 💖
 <h2 id="popupTitle"></h2>
 
 <p id="popupText"></p>
+
+<div id="loveCounter" style="display:none;">
+
+<img src="https://i.pinimg.com/564x/0d/79/65/0d79653d4dc6f4f6cf0fbc8f0e5d2f29.jpg"
+style="
+width:140px;
+height:140px;
+object-fit:cover;
+border-radius:25px;
+border:5px solid #ff8fbc;
+margin-top:20px;
+">
+
+<div class="counter-box">
+
+<div class="time-card">
+<h1 id="dayBox">0</h1>
+<p>วัน</p>
+</div>
+
+<div class="time-card">
+<h1 id="hourBox">0</h1>
+<p>ชั่วโมง</p>
+</div>
+
+<div class="time-card">
+<h1 id="minuteBox">0</h1>
+<p>นาที</p>
+</div>
+
+<div class="time-card">
+<h1 id="secondBox">0</h1>
+<p>วินาที</p>
+</div>
+
+</div>
+
+</div>
 
 <button class="close" onclick="closePopup()">
 ปิด
@@ -422,9 +415,9 @@ MY LOVE 💖
 
 <script>
 
-/* hearts */
+/* หัวใจ */
 
-for(let i=0;i<40;i++){
+for(let i=0;i<35;i++){
 
 let heart=document.createElement("div");
 
@@ -480,48 +473,27 @@ inputs[index+1].focus();
 
 function checkPassword(){
 
-const input1 = inputs[0].value.trim();
-const input2 = inputs[1].value.trim();
-const input3 = inputs[2].value.trim();
-const input4 = inputs[3].value.trim();
+const pass =
+inputs[0].value +
+inputs[1].value +
+inputs[2].value +
+inputs[3].value;
 
-const pass = input1 + input2 + input3 + input4;
-
-if(pass === "0301"){
+if(pass==="0301"){
 
 document.getElementById("passwordPage").style.display="none";
 
 document.getElementById("menuPage").style.display="block";
 
-rainHearts();
-
 playMusic();
+
+rainHearts();
 
 }else{
 
 alert("รหัสไม่ถูกน้า 🥺");
 
 }
-
-}
-
-/* popup */
-
-function openPopup(title,text){
-
-document.getElementById("popup").style.display="flex";
-
-document.getElementById("popupTitle").innerHTML=title;
-
-document.getElementById("popupText").innerHTML=text;
-
-rainHearts();
-
-}
-
-function closePopup(){
-
-document.getElementById("popup").style.display="none";
 
 }
 
@@ -533,11 +505,270 @@ document.getElementById("music").play();
 
 }
 
-/* hearts effect */
+/* popup */
+
+function openPopup(title,text){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("loveCounter").style.display="none";
+
+document.getElementById("popupTitle").innerHTML=title;
+
+document.getElementById("popupText").innerHTML=text;
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+/* นับเวลา */
+
+function showLoveTime(){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupTitle").innerHTML=
+"💖 ตั้งแต่วันแรกที่คบกัน";
+
+document.getElementById("popupText").innerHTML=
+"ทุกวันกับเธอมีความหมายเสมอเลยนะ 🌷";
+
+document.getElementById("loveCounter").style.display="block";
+
+updateLoveTime();
+
+setInterval(updateLoveTime,1000);
+
+}
+
+function updateLoveTime(){
+
+const startDate = new Date("2026-01-03T00:00:00");
+
+const now = new Date();
+
+const diff = now - startDate;
+
+const days = Math.floor(diff/(1000*60*60*24));
+
+const hours = Math.floor((diff/(1000*60*60))%24);
+
+const minutes = Math.floor((diff/(1000*60))%60);
+
+const seconds = Math.floor((diff/1000)%60);
+
+document.getElementById("dayBox").innerHTML=days;
+document.getElementById("hourBox").innerHTML=hours;
+document.getElementById("minuteBox").innerHTML=minutes;
+document.getElementById("secondBox").innerHTML=seconds;
+
+}
+
+/* คำถาม */
+
+let currentQuestion=0;
+
+const questions=[
+
+{
+q:"เราไปเที่ยวครั้งแรกที่ไหน 💖",
+a:["⛰️ ภูกระดึง","🌊 ทะเล","🎡 สวนสนุก"],
+correct:"⛰️ ภูกระดึง",
+message:"💞 ถูกต้องงงง<br><br>ภูกระดึงเป็นทริปแรกของเราเลยนะ ✨"
+},
+
+{
+q:"เค้าชอบให้เธอเรียกว่าอะไร 💖",
+a:["🧸 เด็กดื้อ","💞 ที่รัก","🐷 อ้วน"],
+correct:"🐷 อ้วน",
+message:"🤍 ถูกต้องง<br><br>เวลาเธอเรียกว่าอ้วน มันน่ารักมากเลยนะ 💖"
+},
+
+{
+q:"เค้าชอบเวลาเธอทำอะไรมากที่สุด 💖",
+a:[
+"🫂 กอดเค้า",
+"💬 บอกรัก",
+"😋 งอแงใส่"
+],
+correct:"🫂 กอดเค้า",
+message:"🤍 ถูกต้องง<br><br>กอดของเธอทำให้เค้าสบายใจที่สุดเลย 💞"
+},
+
+{
+q:"เวลาที่เค้ามีความสุขที่สุดคือ 🥺",
+a:[
+"📱 ตอนคุยกับเธอ",
+"🍜 ตอนกินของอร่อย",
+"😴 ตอนนอน"
+],
+correct:"📱 ตอนคุยกับเธอ",
+message:"💌 ถูกต้องง<br><br>แค่ได้คุยกับเธอ วันนั้นก็ดีไปหมดเลย ✨"
+},
+
+{
+q:"เค้าชอบฟังอะไรตอนคิดถึงเธอ 🎵",
+a:[
+"🎶 เพลงเศร้า",
+"💖 เพลงรัก",
+"😹 คลิปตลก"
+],
+correct:"💖 เพลงรัก",
+message:"🌷 ถูกต้องง<br><br>ฟังแล้วนึกถึงเธอตลอดเลย 🤍"
+},
+
+{
+q:"เวลาเธองอน เค้าจะทำยังไง 🥺",
+a:[
+"💬 ง้อ",
+"😶 เงียบ",
+"🎮 เล่นเกม"
+],
+correct:"💬 ง้อ",
+message:"💞 ถูกต้องงง<br><br>ก็ไม่อยากให้เธองอนไง เค้าง้อแน่นอน 💖"
+},
+
+{
+q:"สิ่งแรกที่เค้าดูเวลาเจอเธอ 👀",
+a:[
+"😊 รอยยิ้ม",
+"👀 ตา",
+"💇 ผม"
+],
+correct:"😊 รอยยิ้ม",
+message:"✨ ถูกต้องง<br><br>รอยยิ้มเธอน่ารักที่สุดเลย 🌸"
+},
+
+{
+q:"เค้าอยากไปเที่ยวกับเธออีกที่ไหน 💕",
+a:[
+"🌊 ทะเล",
+"⛰️ ภูเขา",
+"🏕️ ไปได้ทุกที่ถ้ามีเธอ"
+],
+correct:"🏕️ ไปได้ทุกที่ถ้ามีเธอ",
+message:"🤍 ถูกต้องงง<br><br>จริง ๆ ไปไหนก็ได้ แค่มีเธออยู่ด้วย 💖"
+},
+
+{
+q:"เวลาเธอหายไป เค้าจะรู้สึกยังไง 🥺",
+a:[
+"😿 คิดถึง",
+"😶 เฉย ๆ",
+"🎮 เล่นเกมต่อ"
+],
+correct:"😿 คิดถึง",
+message:"💌 ถูกต้องง<br><br>หายไปนิดเดียวก็คิดถึงแล้วนะ 💞"
+},
+
+{
+q:"เค้าชอบช่วงเวลาไหนตอนอยู่กับเธอ 💖",
+a:[
+"🍜 ตอนกินข้าว",
+"📸 ตอนถ่ายรูป",
+"🫂 ทุกช่วงเวลา"
+],
+correct:"🫂 ทุกช่วงเวลา",
+message:"🌷 ถูกต้องงง<br><br>เพราะทุกเวลาที่มีเธอมันดีหมดเลย ✨"
+}
+
+];
+
+function showChoices(){
+
+const random=questions[currentQuestion];
+
+let buttons="";
+
+random.a.forEach(choice=>{
+
+buttons += `
+<button class="choice-btn"
+onclick="checkAnswer(
+'${choice}',
+'${random.correct}',
+\`${random.message}\`
+)">
+${choice}
+</button>
+`;
+
+});
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("loveCounter").style.display="none";
+
+document.getElementById("popupTitle").innerHTML=
+"🎀 เรารู้ใจกันแค่ไหน";
+
+document.getElementById("popupText").innerHTML=
+random.q+"<br><br>"+buttons;
+
+}
+
+function checkAnswer(choice,correct,message){
+
+if(choice===correct){
+
+document.getElementById("popupText").innerHTML=
+message+
+`
+<br><br>
+<button class="choice-btn" onclick="nextQuestion()">
+ข้อถัดไป 💞
+</button>
+`;
+
+rainHearts();
+
+}else{
+
+document.getElementById("popupText").innerHTML=
+`
+🥺 ยังไม่ถูกน้า<br><br>
+
+<button class="choice-btn" onclick="nextQuestion()">
+ไปข้อถัดไป 🌷
+</button>
+`;
+
+}
+
+}
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion>=questions.length){
+
+document.getElementById("popupText").innerHTML=
+`
+💖 จบแล้ววว 💖
+<br><br>
+เก่งมากเลยนะ 🌷
+`;
+
+currentQuestion=0;
+
+return;
+
+}
+
+showChoices();
+
+}
+
+/* ฝนหัวใจ */
 
 function rainHearts(){
 
-for(let i=0;i<40;i++){
+for(let i=0;i<20;i++){
 
 let heart=document.createElement("div");
 
@@ -558,155 +789,6 @@ heart.remove();
 },5000);
 
 }
-
-}
-
-/* days */
-
-const startDate = new Date("2026-01-03");
-const now = new Date();
-const diff = now - startDate;
-const days = Math.floor(diff / (1000*60*60*24));
-
-document.getElementById("daysText").innerHTML =
-"เราอยู่ด้วยกันมา 💞 "+days+" วัน";
-
-/* questions */
-
-let currentQuestion = 0;
-
-const questions = [
-
-{
-q:"เราไปเที่ยวครั้งแรกที่ไหน 💖",
-a:["⛰️ ภูกระดึง","🌊 ทะเล","🎡 สวนสนุก"],
-correct:"⛰️ ภูกระดึง",
-message:"💞 ถูกต้องงงง<br><br>ภูกระดึงเป็นทริปแรกของเราเลยนะ ✨"
-},
-
-{
-q:"เค้าชอบให้เธอเรียกว่าอะไร 💖",
-a:["🧸 เด็กดื้อ","💞 ที่รัก","🐷 อ้วน"],
-correct:"🐷 อ้วน",
-message:"🤍 ถูกต้องง<br><br>เวลาเธอเรียกว่าอ้วน มันน่ารักมากเลยนะ 💖"
-},
-
-{
-q:"เค้าชอบเวลาเธอทำอะไรมากที่สุด 💖",
-a:["🫂 กอดเค้า","💬 บอกรัก","😋 งอแงใส่"],
-correct:"🫂 กอดเค้า",
-message:"🤍 ถูกต้องง<br><br>กอดของเธอทำให้เค้าสบายใจที่สุดเลย 💞"
-},
-
-{
-q:"เวลาที่เค้ามีความสุขที่สุดคือ 🥺",
-a:["📱 ตอนคุยกับเธอ","🍜 ตอนกินของอร่อย","😴 ตอนนอน"],
-correct:"📱 ตอนคุยกับเธอ",
-message:"💌 ถูกต้องง<br><br>แค่ได้คุยกับเธอ วันนั้นก็ดีไปหมดเลย ✨"
-},
-
-{
-q:"เวลาเธอยิ้ม เค้าจะ 🥺",
-a:["😊 ยิ้มตาม","📸 อยากถ่ายรูป","💖 ใจละลาย"],
-correct:"💖 ใจละลาย",
-message:"🤍 ถูกต้องงง<br><br>ยิ้มทีไร ใจเค้าละลายทุกทีเลย 💞"
-}
-
-];
-
-function showChoices(){
-
-const random = questions[currentQuestion];
-
-let buttons = "";
-
-random.a.forEach(choice=>{
-
-buttons += `
-<button class="choice-btn"
-onclick="checkAnswer(
-'${choice}',
-'${random.correct}',
-\`${random.message}\`
-)">
-${choice}
-</button>
-`;
-
-});
-
-document.getElementById("popup").style.display="flex";
-
-document.getElementById("popupTitle").innerHTML=
-"🎀 เรารู้ใจกันแค่ไหน";
-
-document.getElementById("popupText").innerHTML=
-random.q + "<br><br>" + buttons;
-
-}
-
-function checkAnswer(choice,correct,message){
-
-if(choice===correct){
-
-document.getElementById("popupText").innerHTML=
-message +
-`<br><br>
-
-<button class="choice-btn" onclick="nextQuestion()">
-ข้อถัดไป 💞
-</button>`;
-
-rainHearts();
-
-}else{
-
-document.getElementById("popupText").innerHTML=
-`
-🥺 ยังไม่ถูกน้า ลองใหม่อีกครั้งง<br><br>
-
-<button class='choice-btn' onclick='nextQuestion()'>
-ไปข้อถัดไป 🌷
-</button>
-`;
-
-}
-
-}
-
-function nextQuestion(){
-
-currentQuestion++;
-
-if(currentQuestion >= questions.length){
-
-document.getElementById("popupText").innerHTML=
-`
-💖 จบแล้ววว 💖
-<br><br>
-เก่งมากเลยนะที่ตอบจนจบ 🌷
-<br><br>
-เค้ารักเธอที่สุดเลย 🤍
-<br><br>
-
-<button class="choice-btn" onclick="restartQuestions()">
-เล่นใหม่อีกครั้ง 🎀
-</button>
-`;
-
-return;
-
-}
-
-showChoices();
-
-}
-
-function restartQuestions(){
-
-currentQuestion = 0;
-
-showChoices();
 
 }
 
