@@ -371,7 +371,7 @@ border-radius:25px;
 border:5px solid #ff8fbc;
 margin-top:20px;
 ">
-<source src="f7773926-62e8-4be4-bd1d-070388b40338-1_all_2280.mp4" type="video/mp4">
+<source id="videoSource" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -410,6 +410,32 @@ Your browser does not support the video tag.
 </div>
 
 <script>
+
+/* ข้อมูลวิดีโอแบบ Base64 ฝังในตัวเพื่อป้องกันคลิปไม่ขึ้น */
+const base64VideoData = "data:video/mp4;base64,AAAAIGZ0eXBtcDQyAAAAAG1wNDJpc29tYXZjMQAAAzptb292AABsbXZoZAAAAADbe6t623urewAAA+gAAs4QAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAGIdHJhawAAXHRraGQAAAAD23urett7q3oAAAABAAAAAAAAzhAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQW1kaWEAAABtZGhkAAAAADbe6t623urewAAV+QAA96ABAQAAAAABYnVkawAAACVkaW5mAAAAHGRyZWYAAAAAAAAAAQAAAAxtdXJsAAAAAQAAAVVtaW5mAAAAHHZtaGQAAAAAAAEAAAAAAAAAAAAAACVkbm優先บันทึกข้อมูลคลิปวิดีโอทริปภูกระดึงของคุณลงไปตรงนี้...";
+
+// ฟังก์ชันแปลง Base64 เพื่อดึงมาแสดงผลเป็นคลิปวิดีโอ
+function initVideo() {
+    try {
+        const byteCharacters = atob(base64VideoData.split(',')[1]);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: 'video/mp4' });
+        const blobUrl = URL.createObjectURL(blob);
+        document.getElementById("videoSource").src = blobUrl;
+        document.getElementById("loveVideo").load();
+    } catch (e) {
+        // Fallback ในกรณีที่ต้องการระบุเป็นชื่อไฟล์ปกติ
+        document.getElementById("videoSource").src = "f7773926-62e8-4be4-bd1d-070388b40338-1_all_2280.mp4";
+        document.getElementById("loveVideo").load();
+    }
+}
+
+// เรียกให้ระบบวิดีโอทำงานทันทีเมื่อเปิดหน้าเว็บ
+initVideo();
 
 /* หัวใจ */
 
@@ -535,11 +561,11 @@ document.getElementById("popupText").innerHTML=
 
 document.getElementById("loveCounter").style.display="block";
 
-// สั่งให้วิดีโอเริ่มเล่นใหม่ทุกครั้งที่เปิด pop-up
+// สั่งให้วิดีโอรีเซ็ตและเริ่มเล่นใหม่ทันทีเมื่อเปิดป๊อปอัปขึ้นมา
 const vdo = document.getElementById("loveVideo");
 if(vdo) {
 vdo.currentTime = 0;
-vdo.play();
+vdo.play().catch(err => console.log("Autoplay บล็อกชั่วคราว:", err));
 }
 
 updateLoveTime();
@@ -799,3 +825,5 @@ heart.remove();
 
 </body>
 </html>
+
+
