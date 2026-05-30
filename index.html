@@ -287,12 +287,9 @@ color:#ff5b9d;
 
 <body>
 
-<!-- เพลง -->
 <audio id="music" loop>
 <source src="https://files.catbox.moe/6r8w5p.mp3">
 </audio>
-
-<!-- หน้าใส่รหัส -->
 
 <div class="password-page" id="passwordPage">
 
@@ -320,8 +317,6 @@ color:#ff5b9d;
 </div>
 
 </div>
-
-<!-- เมนู -->
 
 <div class="menu-page" id="menuPage">
 
@@ -357,8 +352,6 @@ MY LOVE 💖
 
 </div>
 
-<!-- popup -->
-
 <div class="popup" id="popup">
 
 <div class="popup-content">
@@ -369,15 +362,18 @@ MY LOVE 💖
 
 <div id="loveCounter" style="display:none;">
 
-<img src="https://i.pinimg.com/564x/0d/79/65/0d79653d4dc6f4f6cf0fbc8f0e5d2f29.jpg"
+<video id="loveVideo" autoplay loop muted playsinline
 style="
-width:140px;
-height:140px;
-object-fit:cover;
+width:100%;
+max-width:320px;
+height:auto;
 border-radius:25px;
 border:5px solid #ff8fbc;
 margin-top:20px;
 ">
+<source src="f7773926-62e8-4be4-bd1d-070388b40338-1_all_2280.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 <div class="counter-box">
 
@@ -538,6 +534,13 @@ document.getElementById("popupText").innerHTML=
 "ทุกวันกับเธอมีความหมายเสมอเลยนะ 🌷";
 
 document.getElementById("loveCounter").style.display="block";
+
+// สั่งให้วิดีโอเริ่มเล่นใหม่ทุกครั้งที่เปิด pop-up
+const vdo = document.getElementById("loveVideo");
+if(vdo) {
+vdo.currentTime = 0;
+vdo.play();
+}
 
 updateLoveTime();
 
